@@ -55,3 +55,4 @@ export const DELETE: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: err.message }), { status: 500 });
   }
 };
+

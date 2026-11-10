@@ -13,7 +13,6 @@ export const rawClient = createClient({
 
 export const db = drizzle(rawClient, { schema });
 
-// Auto-initialize SQLite tables if they do not exist
 let isInitialized = false;
 
 export async function ensureDbInitialized() {
@@ -63,7 +62,28 @@ export async function ensureDbInitialized() {
       );
     `);
 
-    // 3. Create redirects table
+    // 3. Create posts table
+    await rawClient.execute(`
+      CREATE TABLE IF NOT EXISTS posts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        slug TEXT NOT NULL UNIQUE,
+        title TEXT NOT NULL,
+        excerpt TEXT NOT NULL,
+        content TEXT NOT NULL,
+        cover_image TEXT DEFAULT 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=630&fit=crop',
+        category TEXT NOT NULL DEFAULT 'Technology',
+        author TEXT NOT NULL DEFAULT 'Infinity Team',
+        status TEXT NOT NULL DEFAULT 'published',
+        published_at INTEGER,
+        updated_at INTEGER,
+        meta_title TEXT DEFAULT '',
+        meta_description TEXT DEFAULT '',
+        canonical_url TEXT DEFAULT '',
+        noindex INTEGER DEFAULT 0
+      );
+    `);
+
+    // 4. Create redirects table
     await rawClient.execute(`
       CREATE TABLE IF NOT EXISTS redirects (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -75,7 +95,7 @@ export async function ensureDbInitialized() {
       );
     `);
 
-    // 4. Seed default global settings if empty
+    // 5. Seed default global settings if empty
     const existingSettings = await db.select().from(schema.siteSettings).limit(1);
     if (existingSettings.length === 0) {
       await db.insert(schema.siteSettings).values({
@@ -88,7 +108,7 @@ export async function ensureDbInitialized() {
       });
     }
 
-    // 5. Seed initial standard pages if empty
+    // 6. Seed initial standard pages if empty
     const existingPages = await db.select().from(schema.pagesSeo).limit(1);
     if (existingPages.length === 0) {
       await db.insert(schema.pagesSeo).values([
@@ -121,6 +141,75 @@ export async function ensureDbInitialized() {
           priority: '0.8',
           changefreq: 'weekly',
           structuredDataType: 'Product',
+        },
+        {
+          path: '/blog',
+          pageName: 'Blog',
+          metaTitle: 'Latest Insights, Engineering & SEO Trends',
+          metaDescription: 'Read the latest technical articles on web performance, search engine optimization algorithms, and modern fullstack architecture.',
+          keywords: 'seo blog, web performance, astro tutorials',
+          priority: '0.9',
+          changefreq: 'daily',
+          structuredDataType: 'WebSite',
+        },
+      ]);
+    }
+
+    // 7. Seed initial blog posts if empty
+    const existingPosts = await db.select().from(schema.posts).limit(1);
+    if (existingPosts.length === 0) {
+      await db.insert(schema.posts).values([
+        {
+          slug: 'mastering-core-web-vitals-in-2025',
+          title: 'Mastering Core Web Vitals: How to Achieve 100/100 Lighthouse Scores',
+          excerpt: 'Discover why minimizing client-side JavaScript hydration and optimizing critical rendering paths is the secret to unmatched SEO rankings.',
+          content: `## Why Core Web Vitals Dictate Modern SEO
+
+Google's search algorithm puts massive emphasis on user experience signals. Specifically, **Largest Contentful Paint (LCP)**, **Interaction to Next Paint (INP)**, and **Cumulative Layout Shift (CLS)** now directly determine how competitively your content ranks.
+
+### The JavaScript Hydration Trap
+
+Many modern websites build simple content blogs with heavy single-page application (SPA) frameworks. While dynamic interactivity is valuable, downloading 500KB of React or Angular JavaScript just to read an article creates severe CPU overhead on mobile devices.
+
+### 3 Key Pillars of Ultra-Fast Websites:
+
+1. **Islands Architecture**: Only ship JavaScript to interactive components (e.g. search bars, comment feeds), keeping articles static HTML.
+2. **Next-Gen Images**: Serve WebP or AVIF formats with explicit \`width\` and \`height\` dimensions to eliminate layout shifts.
+3. **Edge Database Delivery**: Place data close to users via SQLite or distributed edge replicas.
+
+By adopting these patterns, your website delivers sub-50ms Time to First Byte (TTFB) and guarantees flawless 100/100 performance scores across mobile and desktop.`,
+          coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop',
+          category: 'Performance',
+          author: 'Alex Mercer',
+          status: 'published',
+          metaTitle: 'Mastering Core Web Vitals in 2025: The Complete Guide',
+          metaDescription: 'Learn how to score 100/100 on Google Lighthouse by optimizing LCP, INP, and eliminating JavaScript hydration bloat.',
+        },
+        {
+          slug: 'why-sqlite-is-future-of-standalone-websites',
+          title: 'Why SQLite & LibSQL Are the Future of Portable Websites',
+          excerpt: 'Explore how embedded SQLite removes database administration friction while unlocking instant deployment across any hosting panel.',
+          content: `## The Simplicity of SQLite in Production
+
+For over two decades, the standard recipe for dynamic websites required running a separate database daemon—typically MySQL or PostgreSQL—alongside the web server.
+
+While relational server databases excel for massive multi-node transactional platforms, they add substantial operational friction to standard business websites and blogs.
+
+### The Benefits of Embedded Storage
+
+* **Zero Daemon Configuration**: No passwords to leak in database connection strings, no socket errors, and no memory leaks from background database processes.
+* **Effortless Backups**: Backing up your database is as simple as copying a single \`.db\` file.
+* **Blazing Fast In-Memory Reads**: Because the database lives in the same process or file system, read latencies drop from 10–50ms over a network down to microseconds.
+
+### Seamless Cloud Scale with Turso
+
+When deploying to serverless platforms like Vercel, traditional local file writes are ephemeral. With **LibSQL / Turso**, you get the exact same SQLite syntax and local development experience, combined with instant global edge replication.`,
+          coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop',
+          category: 'Architecture',
+          author: 'Sophia Chen',
+          status: 'published',
+          metaTitle: 'Why SQLite is the Future of Standalone Web Hosting',
+          metaDescription: 'Discover the advantages of embedded SQLite and LibSQL for building superfast, portable websites without database management overhead.',
         },
       ]);
     }

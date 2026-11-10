@@ -1,0 +1,137 @@
+---
+import '../../styles/global.css';
+
+const redirectParam = Astro.url.searchParams.get('redirect') || '/admin/seo';
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login - Infinity Studio</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+  <body class="bg-slate-950 text-slate-100 min-h-screen flex items-center justify-center p-4 antialiased">
+    <div class="w-full max-w-md">
+      <!-- Brand Logo -->
+      <div class="text-center mb-8">
+        <a href="/" class="inline-flex items-center gap-2 font-bold text-2xl tracking-tight text-white mb-2">
+          <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <span>Infinity<span class="text-indigo-400">Admin</span></span>
+        </a>
+        <p class="text-sm text-slate-400">Restricted Administration Panel</p>
+      </div>
+
+      <!-- Login Card -->
+      <div class="p-8 rounded-2xl bg-slate-900/70 border border-slate-800 shadow-2xl backdrop-blur">
+        <form id="loginForm" class="space-y-5">
+          <input type="hidden" id="redirectUrl" value={redirectParam} />
+
+          <div>
+            <label for="password" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              Admin Master Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter master password..."
+              required
+              autofocus
+              class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
+            />
+          </div>
+
+          <div id="errorMessage" class="hidden p-3 rounded-lg bg-rose-500/10 border border-rose-500/20 text-xs text-rose-400 font-medium">
+          </div>
+
+          <button
+            type="submit"
+            id="submitBtn"
+            class="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white shadow-lg shadow-indigo-500/25 transition-all cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
+          >
+            Authenticate & Enter →
+          </button>
+        </form>
+
+        <div class="mt-6 pt-5 border-t border-slate-800/80 text-center">
+          <p class="text-xs text-slate-400 mb-2">
+            Default Password: <code id="defaultPassBadge" class="text-indigo-300 font-mono bg-slate-950 px-2 py-1 rounded cursor-pointer hover:bg-indigo-950 border border-indigo-900/40" title="Click to fill">admin</code>
+          </p>
+          <button
+            type="button"
+            id="autofillBtn"
+            class="text-[11px] text-indigo-400 hover:text-indigo-300 font-semibold underline"
+          >
+            Click here to auto-fill password
+          </button>
+          <div>
+            <a href="/" class="inline-block mt-4 text-xs text-slate-500 hover:text-slate-300 transition-colors">
+              ← Return to public website
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById('loginForm') as HTMLFormElement;
+      const errorDiv = document.getElementById('errorMessage') as HTMLDivElement;
+      const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+      const redirectInput = document.getElementById('redirectUrl') as HTMLInputElement;
+      const passwordInput = document.getElementById('password') as HTMLInputElement;
+      const autofillBtn = document.getElementById('autofillBtn');
+      const defaultPassBadge = document.getElementById('defaultPassBadge');
+
+      const fillPass = () => {
+        if (passwordInput) {
+          passwordInput.value = 'admin';
+          passwordInput.focus();
+        }
+      };
+
+      autofillBtn?.addEventListener('click', fillPass);
+      defaultPassBadge?.addEventListener('click', fillPass);
+
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errorDiv.classList.add('hidden');
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Verifying...';
+
+        const password = passwordInput.value;
+        const redirect = redirectInput.value || '/admin/seo';
+
+        try {
+          const res = await fetch('/api/admin/auth', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ password }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            window.location.href = redirect;
+          } else {
+            errorDiv.innerText = data.error || 'Authentication failed. Please check your password.';
+            errorDiv.classList.remove('hidden');
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Authenticate & Enter →';
+          }
+        } catch (err: any) {
+          errorDiv.innerText = 'Connection error: ' + err.message;
+          errorDiv.classList.remove('hidden');
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'Authenticate & Enter →';
+        }
+      });
+    </script>
+  </body>
+</html>

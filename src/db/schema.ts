@@ -19,8 +19,8 @@ export const siteSettings = sqliteTable('site_settings', {
 // Page-specific SEO & Metadata
 export const pagesSeo = sqliteTable('pages_seo', {
   id: integer('id').primaryKey({ autoIncrement: true }),
-  path: text('path').notNull().unique(), // e.g. '/', '/about', '/services'
-  pageName: text('page_name').notNull(), // User-friendly label e.g. "Homepage"
+  path: text('path').notNull().unique(), // e.g. '/', '/about', '/services', '/blog'
+  pageName: text('page_name').notNull(),
   metaTitle: text('meta_title').notNull(),
   metaDescription: text('meta_description').notNull(),
   keywords: text('keywords').default(''),
@@ -28,15 +28,35 @@ export const pagesSeo = sqliteTable('pages_seo', {
   ogTitle: text('og_title').default(''),
   ogDescription: text('og_description').default(''),
   ogImage: text('og_image').default(''),
-  twitterCard: text('twitter_card').default('summary_large_image'), // 'summary' or 'summary_large_image'
+  twitterCard: text('twitter_card').default('summary_large_image'),
   noindex: integer('noindex', { mode: 'boolean' }).default(false),
   nofollow: integer('nofollow', { mode: 'boolean' }).default(false),
-  structuredDataType: text('structured_data_type').default('WebSite'), // 'WebSite', 'Article', 'Organization', 'FAQPage', 'Product', 'Custom'
+  structuredDataType: text('structured_data_type').default('WebSite'),
   customSchemaJson: text('custom_schema_json').default(''),
-  changefreq: text('changefreq').default('weekly'), // 'always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never'
-  priority: text('priority').default('0.8'), // e.g. '1.0', '0.8', '0.5'
+  changefreq: text('changefreq').default('weekly'),
+  priority: text('priority').default('0.8'),
   inSitemap: integer('in_sitemap', { mode: 'boolean' }).default(true),
   updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+});
+
+// Blog Posts with Built-in SEO
+export const posts = sqliteTable('posts', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  slug: text('slug').notNull().unique(),
+  title: text('title').notNull(),
+  excerpt: text('excerpt').notNull(),
+  content: text('content').notNull(),
+  coverImage: text('cover_image').default('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=630&fit=crop'),
+  category: text('category').notNull().default('Technology'),
+  author: text('author').notNull().default('Infinity Team'),
+  status: text('status').notNull().default('published'), // 'draft' | 'published'
+  publishedAt: integer('published_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+  updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+  // Post-specific SEO overrides
+  metaTitle: text('meta_title').default(''),
+  metaDescription: text('meta_description').default(''),
+  canonicalUrl: text('canonical_url').default(''),
+  noindex: integer('noindex', { mode: 'boolean' }).default(false),
 });
 
 // URL Redirects (301 / 302)
@@ -51,4 +71,5 @@ export const redirects = sqliteTable('redirects', {
 
 export type SiteSettings = typeof siteSettings.$inferSelect;
 export type PageSeo = typeof pagesSeo.$inferSelect;
+export type Post = typeof posts.$inferSelect;
 export type Redirect = typeof redirects.$inferSelect;

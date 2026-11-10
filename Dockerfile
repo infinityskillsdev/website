@@ -25,3 +25,4 @@ ENV DATABASE_URL="file:/app/data/local.db"
 
 EXPOSE 4321
 CMD ["node", "./dist/server/entry.mjs"]
+

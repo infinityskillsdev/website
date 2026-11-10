@@ -125,3 +125,4 @@ Your website will be running on port `4321` with persistent SQLite storage mount
 │       ├── robots.txt.ts        # Dynamic robots.txt endpoint
 │       └── api/seo/             # REST API for the SEO dashboard
 ```
+
