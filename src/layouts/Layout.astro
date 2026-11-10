@@ -1,0 +1,73 @@
+---
+import SEO from '../components/SEO.astro';
+import '../styles/global.css';
+
+interface Props {
+  path?: string;
+  title?: string;
+  description?: string;
+}
+
+const { path = Astro.url.pathname, title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SEO path={path} fallbackTitle={title} fallbackDescription={description} />
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
+      <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 font-bold text-xl tracking-tight text-white hover:text-indigo-400 transition-colors">
+          <div class="h-8 w-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <span>Infinity<span class="text-indigo-400">SEO</span></span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <a href="/about" class="hover:text-white transition-colors">About</a>
+          <a href="/services" class="hover:text-white transition-colors">Services</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="/admin/seo"
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/20 hover:border-indigo-500/50 transition-all shadow-sm"
+          >
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            SEO Control Panel
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 bg-slate-950/90 py-10 mt-20 text-slate-500 text-sm">
+      <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>
+          <p>© {new Date().getFullYear()} Infinity Web Studio. All rights reserved.</p>
+          <p class="text-xs text-slate-600 mt-1">Built with Astro Islands, SQLite & Standalone Node/Vercel support.</p>
+        </div>
+        <div class="flex items-center gap-6 text-xs text-slate-400">
+          <a href="/sitemap.xml" class="hover:text-indigo-400 underline">XML Sitemap</a>
+          <a href="/robots.txt" class="hover:text-indigo-400 underline">Robots.txt</a>
+          <a href="/admin/seo" class="hover:text-indigo-400 underline">Manage SEO</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

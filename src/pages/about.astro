@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout path="/about">
+  <section class="max-w-4xl mx-auto px-4 py-20">
+    <div class="mb-12">
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+        About Our Architecture
+      </h1>
+      <p class="text-lg text-slate-400">
+        How we achieve industry-leading Core Web Vitals while retaining real-time dynamic SEO control.
+      </p>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300">
+      <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
+        <h2 class="text-xl font-bold text-white mb-3">1. The Problem with Bloated CMSs</h2>
+        <p class="leading-relaxed text-sm text-slate-400">
+          Traditional platforms like WordPress or heavy React SPAs ship megabytes of unused JavaScript, heavy plugins, and bulky database queries. This kills Google PageSpeed metrics and hurts organic ranking positions.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
+        <h2 class="text-xl font-bold text-white mb-3">2. The Astro Islands Advantage</h2>
+        <p class="leading-relaxed text-sm text-slate-400">
+          Astro strips away 100% of the client-side JavaScript for marketing pages by default. The browser receives clean HTML, pre-rendered CSS, and optimized media. Dynamic interactive widgets (like our live SEO SERP preview) are loaded only where specifically needed.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
+        <h2 class="text-xl font-bold text-white mb-3">3. Unified SQLite Storage</h2>
+        <p class="leading-relaxed text-sm text-slate-400">
+          By utilizing LibSQL, you have the choice between an embedded zero-maintenance local file (`file:local.db`) for cPanel/VPS, or Turso's cloud edge SQLite for free zero-cost serverless hosting on Vercel.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

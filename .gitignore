@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Production build output
+dist/
+.astro/
+
+# SQLite databases
+*.db
+*.db-journal
+local.db*
+data/
+
+# Environment files
+.env
+!.env.example
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

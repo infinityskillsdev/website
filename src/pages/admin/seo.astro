@@ -1,0 +1,61 @@
+---
+import SeoPanel from '../../components/admin/SeoPanel';
+import '../../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEO Control Panel - Infinity Studio</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased">
+    <!-- Admin Top Bar -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="/" class="flex items-center gap-2 text-white font-bold tracking-tight text-lg hover:text-indigo-400 transition-colors">
+            <div class="h-7 w-7 rounded-lg bg-indigo-600 flex items-center justify-center text-white">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <span>Infinity<span class="text-indigo-400">SEO</span></span>
+          </a>
+          <span class="text-slate-600 text-xs">/</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">SEO Management Dashboard</span>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="hidden sm:flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-emerald-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            SQLite / LibSQL Connected
+          </div>
+
+          <a
+            href="/"
+            class="text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1 transition-colors"
+          >
+            ← View Website
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="mb-8">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Search Engine Optimization Panel</h1>
+        <p class="text-sm text-slate-400 mt-1">
+          Manage page titles, descriptions, social OpenGraph banners, structured JSON-LD data, and URL redirects in real-time.
+        </p>
+      </div>
+
+      <!-- React Interactive Panel Island -->
+      <SeoPanel client:load />
+    </main>
+  </body>
+</html>

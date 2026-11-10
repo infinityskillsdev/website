@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout path="/">
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-24 pb-20">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.25),rgba(255,255,255,0))]"></div>
+    <div class="max-w-5xl mx-auto px-4 relative z-10 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-8 backdrop-blur">
+        <span>⚡ Superfast Architecture</span>
+        <span class="text-slate-600">•</span>
+        <span>Astro + SQLite + Integrated SEO Engine</span>
+      </div>
+      
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
+        Standalone Website with <br />
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">
+          Real-Time SEO Control
+        </span>
+      </h1>
+      
+      <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-400 mb-10 leading-relaxed">
+        Engineered for speed, zero-JS hydration by default, and maximum hosting portability. Deploy for free on Vercel or drop it onto any cPanel, Plesk, or Docker VPS.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="/admin/seo"
+          class="px-6 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white shadow-lg shadow-indigo-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+        >
+          Open SEO Management Panel →
+        </a>
+        <a
+          href="/about"
+          class="px-6 py-3.5 rounded-xl font-semibold text-sm bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all"
+        >
+          Explore Architecture
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Grid -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-indigo-500/50 transition-all group">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">100/100 Core Web Vitals</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Astro renders pure HTML with minimal client-side runtime, giving visitors instantaneous page loads and top Google ranking signals.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-purple-500/50 transition-all group">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">In-Dashboard SEO Control</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Update Meta Titles, Descriptions, OpenGraph cards, Canonical URLs, and Schema.org JSON-LD dynamically with real-time Google search snippet previews.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-emerald-500/50 transition-all group">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Universal Deployment</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Deploy onto Vercel for free using Turso SQLite, or run as a standalone Node.js server on cPanel, Plesk, CyberPanel, or Docker.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live SEO Status Demo Banner -->
+  <section class="max-w-4xl mx-auto px-4 py-12">
+    <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 sm:p-8 backdrop-blur">
+      <div class="flex items-center justify-between mb-4">
+        <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-400">Current Route SEO Inspection</h4>
+        <span class="px-2.5 py-1 text-xs rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Active in SQLite</span>
+      </div>
+      <div class="space-y-3 font-mono text-xs sm:text-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-slate-800/60">
+          <span class="text-slate-500">Route:</span>
+          <span class="text-indigo-300 font-bold">/</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-slate-800/60">
+          <span class="text-slate-500">Meta Title:</span>
+          <span class="text-slate-200">Fastest Modern Web Platform with Built-in SEO</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-slate-800/60">
+          <span class="text-slate-500">Sitemap Status:</span>
+          <span class="text-emerald-400">Included (Priority 1.0, Daily)</span>
+        </div>
+      </div>
+      <div class="mt-6 text-center">
+        <a href="/admin/seo" class="text-xs text-indigo-400 hover:text-indigo-300 underline font-medium">
+          Edit this route's metadata in the SEO Panel →
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,148 @@
+---
+import { db, ensureDbInitialized } from '../db/client';
+import { pagesSeo, siteSettings } from '../db/schema';
+import { eq } from 'drizzle-orm';
+
+interface Props {
+  path?: string;
+  fallbackTitle?: string;
+  fallbackDescription?: string;
+  fallbackOgImage?: string;
+}
+
+const { path = Astro.url.pathname, fallbackTitle, fallbackDescription, fallbackOgImage } = Astro.props;
+
+// Initialize database if needed
+await ensureDbInitialized();
+
+// Fetch site-wide settings
+const [settings] = await db.select().from(siteSettings).limit(1);
+
+// Normalize path (ensure trailing slash or standard format)
+const cleanPath = path === '' ? '/' : (path.endsWith('/') && path.length > 1 ? path.slice(0, -1) : path);
+
+// Fetch page-specific SEO
+const [pageSeo] = await db.select().from(pagesSeo).where(eq(pagesSeo.path, cleanPath)).limit(1);
+
+const siteName = settings?.siteName || 'Infinity Studio';
+const titleTemplate = settings?.titleTemplate || '%title% | %site_name%';
+
+// Resolve Title
+const rawTitle = pageSeo?.metaTitle || fallbackTitle || siteName;
+const title = titleTemplate.replace('%title%', rawTitle).replace('%site_name%', siteName);
+
+// Resolve Description
+const description = pageSeo?.metaDescription || fallbackDescription || settings?.siteDescription || '';
+
+// Resolve Keywords
+const keywords = pageSeo?.keywords || '';
+
+// Resolve Canonical URL
+const siteUrl = process.env.SITE_URL || Astro.url.origin;
+const canonicalUrl = pageSeo?.canonicalUrl || `${siteUrl}${cleanPath}`;
+
+// Resolve Social Images & Titles
+const ogTitle = pageSeo?.ogTitle || rawTitle;
+const ogDescription = pageSeo?.ogDescription || description;
+const ogImage = pageSeo?.ogImage || fallbackOgImage || settings?.defaultOgImage || '';
+const twitterCard = pageSeo?.twitterCard || 'summary_large_image';
+const twitterHandle = settings?.twitterHandle || '';
+
+// Robots directive
+const robots = [
+  pageSeo?.noindex ? 'noindex' : 'index',
+  pageSeo?.nofollow ? 'nofollow' : 'follow'
+].join(', ');
+
+// Schema.org Structured Data Generation
+let schemaData: any = null;
+if (pageSeo?.customSchemaJson && pageSeo.customSchemaJson.trim() !== '') {
+  try {
+    schemaData = JSON.parse(pageSeo.customSchemaJson);
+  } catch (e) {
+    console.error('Invalid custom JSON-LD schema:', e);
+  }
+} else {
+  const schemaType = pageSeo?.structuredDataType || 'WebSite';
+  if (schemaType === 'WebSite') {
+    schemaData = {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      'name': siteName,
+      'url': siteUrl,
+      'description': description,
+    };
+  } else if (schemaType === 'Organization') {
+    schemaData = {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      'name': siteName,
+      'url': siteUrl,
+      'logo': ogImage,
+      'description': description,
+    };
+  } else if (schemaType === 'Article') {
+    schemaData = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': rawTitle,
+      'description': description,
+      'image': ogImage,
+      'author': {
+        '@type': 'Organization',
+        'name': siteName,
+      },
+      'publisher': {
+        '@type': 'Organization',
+        'name': siteName,
+        'logo': {
+          '@type': 'ImageObject',
+          'url': ogImage,
+        },
+      },
+    };
+  } else if (schemaType === 'Product') {
+    schemaData = {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      'name': rawTitle,
+      'description': description,
+      'image': ogImage,
+    };
+  }
+}
+---
+
+<!-- Core Search Engine Tags -->
+<title>{title}</title>
+<meta name="description" content={description} />
+{keywords && <meta name="keywords" content={keywords} />}
+<link rel="canonical" href={canonicalUrl} />
+<meta name="robots" content={robots} />
+
+<!-- OpenGraph (Facebook, LinkedIn, Discord) -->
+<meta property="og:site_name" content={siteName} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={ogTitle} />
+<meta property="og:description" content={ogDescription} />
+{ogImage && <meta property="og:image" content={ogImage} />}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content={twitterCard} />
+{twitterHandle && <meta name="twitter:site" content={twitterHandle} />}
+<meta name="twitter:title" content={ogTitle} />
+<meta name="twitter:description" content={ogDescription} />
+{ogImage && <meta name="twitter:image" content={ogImage} />}
+
+<!-- Webmaster Verification -->
+{settings?.googleVerification && <meta name="google-site-verification" content={settings.googleVerification} />}
+{settings?.bingVerification && <meta name="msvalidate.01" content={settings.bingVerification} />}
+
+<!-- Structured Data JSON-LD -->
+{schemaData && (
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData, null, 2)} />
+)}
+
+<!-- Custom Head Injections from Admin Panel -->
+{settings?.headScripts && <Fragment set:html={settings.headScripts} />}
