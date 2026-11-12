@@ -1,15 +1,73 @@
 @import "tailwindcss";
 
-:root {
-  --font-fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+@theme {
+  --color-brand-50: #f4f7fb;
+  --color-brand-100: #e5edf7;
+  --color-brand-600: #1d4ed8;
+  --color-brand-700: #1e40af;
+  --color-brand-800: #0f2b5c;
+  --color-brand-900: #0a1b3a;
+  
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+  
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-body {
-  font-family: var(--font-fallback);
-  background-color: #0b0f19;
-  color: #f1f5f9;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #ffffff;
+    color: #334155;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    color: #0a1b3a;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
 }
 
+@layer components {
+  .container-site {
+    @apply max-w-6xl mx-auto px-5 sm:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-brand-800 text-white hover:bg-brand-900 shadow-sm transition-all;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold border border-slate-300 text-slate-800 bg-white hover:border-slate-400 hover:bg-slate-50 shadow-xs transition-all;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition-all;
+  }
+
+  .btn-amber {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-amber-600 text-white hover:bg-amber-700 shadow-sm transition-all;
+  }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-900 underline-offset-4 hover:underline;
+  }
+
+  .prose-body p {
+    @apply text-slate-600 leading-[1.8] text-[17px];
+  }
+  .prose-body p + p {
+    @apply mt-5;
+  }
+}

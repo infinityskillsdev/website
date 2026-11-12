@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { db, ensureDbInitialized } from '../db/client';
-import { pagesSeo, posts } from '../db/schema';
+import { pagesSeo } from '../db/schema';
 import { eq, and } from 'drizzle-orm';
 
 export const GET: APIRoute = async ({ url }) => {
@@ -8,21 +8,51 @@ export const GET: APIRoute = async ({ url }) => {
 
   const siteUrl = process.env.SITE_URL || url.origin;
 
-  // 1. Retrieve all standard pages marked for inclusion in sitemap and not noindexed
+  // Retrieve public pages marked for inclusion in sitemap and not noindexed
+  // Exclude /blog routes until official launch approval as requested in the brief
   const indexedPages = await db
     .select()
     .from(pagesSeo)
     .where(and(eq(pagesSeo.inSitemap, true), eq(pagesSeo.noindex, false)));
 
-  // 2. Retrieve all published blog posts not set to noindex
-  const publishedPosts = await db
-    .select()
-    .from(posts)
-    .where(and(eq(posts.status, 'published'), eq(posts.noindex, false)));
+  const publicPages = indexedPages.filter(
+    (page) => !page.path.startsWith('/blog') && !page.path.startsWith('/admin')
+  );
+
+  // Core static routes fallback if DB doesn't have them yet
+  const corePaths = ['/', '/about', '/courses', '/partner', '/contact'];
+  const presentPaths = new Set(publicPages.map((p) => p.path));
+
+  const allEntries = [...publicPages];
+  for (const p of corePaths) {
+    if (!presentPaths.has(p)) {
+      allEntries.push({
+        id: 0,
+        path: p,
+        pageName: p === '/' ? 'Home' : p.slice(1),
+        metaTitle: '',
+        metaDescription: '',
+        keywords: '',
+        canonicalUrl: '',
+        ogTitle: '',
+        ogDescription: '',
+        ogImage: '',
+        twitterCard: 'summary_large_image',
+        noindex: false,
+        nofollow: false,
+        structuredDataType: 'WebSite',
+        customSchemaJson: '',
+        changefreq: 'weekly',
+        priority: p === '/' ? '1.0' : '0.8',
+        inSitemap: true,
+        updatedAt: new Date(),
+      });
+    }
+  }
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${indexedPages
+${allEntries
   .map((page) => {
     const loc = `${siteUrl}${page.path === '/' ? '' : page.path}`;
     const lastmod = page.updatedAt ? new Date(page.updatedAt).toISOString() : new Date().toISOString();
@@ -31,18 +61,6 @@ ${indexedPages
     <lastmod>${lastmod}</lastmod>
     <changefreq>${page.changefreq || 'weekly'}</changefreq>
     <priority>${page.priority || '0.8'}</priority>
-  </url>`;
-  })
-  .join('\n')}
-${publishedPosts
-  .map((post) => {
-    const loc = `${siteUrl}/blog/${post.slug}`;
-    const lastmod = post.updatedAt ? new Date(post.updatedAt).toISOString() : new Date().toISOString();
-    return `  <url>
-    <loc>${loc}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>`;
   })
   .join('\n')}

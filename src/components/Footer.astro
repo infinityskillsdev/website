@@ -1,0 +1,47 @@
+---
+import Logo from './Logo.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-brand-900 text-slate-300 mt-24">
+  <div class="container-site py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
+    <div class="md:col-span-5">
+      <Logo isDarkTheme={true} />
+      <p class="mt-6 text-sm leading-relaxed text-slate-400 max-w-sm">
+        Educational guidance, tutoring support and access to recognised UK qualifications for learners in London and internationally.
+      </p>
+    </div>
+
+    <div class="md:col-span-3">
+      <h4 class="font-sans text-sm font-semibold text-white mb-4">Explore</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="/about" class="hover:text-white">About Us</a></li>
+        <li><a href="/courses" class="hover:text-white">Courses</a></li>
+        <li><a href="/partner" class="hover:text-white">Our Partner</a></li>
+        <li><a href="/contact" class="hover:text-white">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="md:col-span-4">
+      <h4 class="font-sans text-sm font-semibold text-white mb-4">Contact</h4>
+      <address class="not-italic text-sm space-y-2.5 leading-relaxed">
+        <p>38 Woodgrange Road<br />London, England, E7 0QH</p>
+        <p><a href="tel:+447515474714" class="hover:text-white">+44 7515 474714</a></p>
+        <p><a href="mailto:info@infinityskillsdev.com" class="hover:text-white">info@infinityskillsdev.com</a></p>
+      </address>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container-site py-6 text-xs text-slate-400 space-y-2">
+      <p>
+        © {year} Infinity International Skills Development Ltd. Registered in England and Wales, Company No. 13770605.
+        Registered office: 38 Woodgrange Road, London, England, E7 0QH.
+      </p>
+      <p class="text-slate-500">
+        Qualifications listed on this website are awarded by Gatehouse Awards, an awarding organisation recognised by Ofqual.
+      </p>
+    </div>
+  </div>
+</footer>

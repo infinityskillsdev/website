@@ -1,117 +1,427 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { courses } from '../data/courses';
+
+const featured = courses.filter((c) => c.highlight).slice(0, 4);
+
+const services = [
+  {
+    number: '01',
+    title: 'Personalised Learning Guidance',
+    text: 'One-to-one advice tailored to your previous education and career goals, helping you choose the right qualification route with confidence.',
+    badge: 'Guidance',
+    color: 'border-amber-500 text-amber-700 bg-amber-50',
+  },
+  {
+    number: '02',
+    title: 'Tutoring Support',
+    text: 'Access to experienced subject tutors who help strengthen your knowledge, prepare for assessments, and build successful study habits.',
+    badge: 'Tutoring',
+    color: 'border-brand-600 text-brand-700 bg-brand-50',
+  },
+  {
+    number: '03',
+    title: 'Skills Development',
+    text: 'Practical opportunities to develop commercial, administrative and entrepreneurial capabilities that prepare you for the workplace.',
+    badge: 'Skills',
+    color: 'border-emerald-500 text-emerald-700 bg-emerald-50',
+  },
+  {
+    number: '04',
+    title: 'University Admissions Guidance',
+    text: 'Structured support in understanding UK higher education pathways, entry requirements, UCAS applications, and foundation routes.',
+    badge: 'Admissions',
+    color: 'border-indigo-500 text-indigo-700 bg-indigo-50',
+  },
+];
+
+const pathwaySteps = [
+  {
+    step: '01',
+    level: 'Level 2 & 3 Foundations',
+    title: 'Foundation & Entry Pathways',
+    description: 'Establish core business, IT, and administrative skills. Perfect for learners preparing for higher education or entering employment.',
+    target: 'Age 16+ · High School graduates',
+    badgeColor: 'bg-amber-100 text-amber-800 border-amber-300',
+  },
+  {
+    step: '02',
+    level: 'Level 4 & 5 Diplomas',
+    title: 'Advanced Business & Management',
+    description: 'Equivalent in academic rigor to the first two years of a UK undergraduate degree, covering leadership, strategy, and operations.',
+    target: 'Undergraduate level study',
+    badgeColor: 'bg-blue-100 text-blue-800 border-blue-300',
+  },
+  {
+    step: '03',
+    level: 'Progression & Career',
+    title: 'Degree Top-Up & Career Advancement',
+    description: 'Use your recognised credits towards university progression, Bachelor top-up degrees, or managerial positions in the international marketplace.',
+    target: 'University & Professional roles',
+    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-300',
+  },
+];
+
+function getLevelBadgeStyle(level: string, category: string): string {
+  if (category === 'International Foundation') return 'bg-emerald-100 text-emerald-800 border-emerald-300';
+  if (level.includes('Level 5')) return 'bg-indigo-100 text-indigo-900 border-indigo-300';
+  if (level.includes('Level 4')) return 'bg-blue-100 text-blue-800 border-blue-300';
+  if (level.includes('Level 3')) return 'bg-amber-100 text-amber-800 border-amber-300';
+  return 'bg-slate-100 text-slate-800 border-slate-300';
+}
 ---
 
-<Layout path="/">
+<Layout
+  path="/"
+  title="Empowering Learners. Inspiring Futures."
+  description="Infinity International Skills Development Ltd supports learners through personalised educational guidance, skills development and access to recognised Gatehouse Awards qualifications."
+>
   <!-- Hero Section -->
-  <section class="relative overflow-hidden pt-24 pb-20">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.25),rgba(255,255,255,0))]"></div>
-    <div class="max-w-5xl mx-auto px-4 relative z-10 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-8 backdrop-blur">
-        <span>⚡ Superfast Architecture</span>
-        <span class="text-slate-600">•</span>
-        <span>Astro + SQLite + Integrated SEO Engine</span>
+  <section class="border-b border-slate-200 bg-gradient-to-b from-brand-50/50 via-white to-white">
+    <div class="container-site grid lg:grid-cols-12 gap-12 lg:gap-14 items-center py-14 lg:py-20">
+      <div class="lg:col-span-7">
+        <!-- Trust badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 mb-5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Educational Support &amp; Regulated UK Qualifications</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl leading-[1.12] text-brand-900">
+          Empowering Learners. <br />
+          <span class="text-amber-600 font-serif italic">Inspiring Futures.</span>
+        </h1>
+
+        <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
+          At <strong class="text-slate-900 font-semibold">Infinity International Skills Development Ltd</strong>, we believe quality education should be accessible to everyone. We support learners through personalised guidance, skills development and access to information about recognised UK professional qualifications.
+        </p>
+
+        <!-- CTAs: Primary + WhatsApp + Enquiry -->
+        <div class="mt-8 flex flex-wrap gap-3 items-center">
+          <a href="/courses" class="btn-primary">
+            <span>Explore Courses</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a
+            href="https://wa.me/447515474714?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20UK%20qualifications%20and%20admissions."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-whatsapp"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.075-2.227-.557-1.745-.722-2.883-2.502-2.97-2.618-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.087-.179.182-.077.357.101.174.453.748.971 1.209.669.595 1.233.78 1.408.867.174.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.158.572 4.184 1.574 5.938l-1.574 5.754 5.922-1.553c1.706.942 3.666 1.477 5.753 1.477 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z" />
+            </svg>
+            <span>WhatsApp Chat</span>
+          </a>
+          <a href="/contact" class="btn-secondary">
+            <span>Make an Enquiry</span>
+          </a>
+        </div>
       </div>
-      
-      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
-        Standalone Website with <br />
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">
-          Real-Time SEO Control
+
+      <!-- Hero Visual Image with Highlights -->
+      <div class="lg:col-span-5 relative">
+        <div class="rounded-xl overflow-hidden shadow-lg border border-slate-200">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1000&q=75&auto=format&fit=crop"
+            alt="Students collaborating on coursework"
+            class="w-full aspect-[4/3] object-cover"
+            width="1000"
+            height="750"
+            fetchpriority="high"
+          />
+        </div>
+        <!-- Floated badge -->
+        <div class="hidden sm:flex absolute -bottom-5 -left-5 bg-white border border-slate-200 rounded-xl p-3.5 shadow-md items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg">
+            ✓
+          </div>
+          <div class="text-xs">
+            <span class="block font-bold text-slate-900">Ofqual Regulated</span>
+            <span class="text-slate-500">Gatehouse Awards Qualifications</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credibility & Fast Facts Strip -->
+  <section class="border-b border-slate-200 bg-brand-50/70">
+    <div class="container-site py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+      <div class="flex items-start gap-3">
+        <span class="text-xl">🎓</span>
+        <div>
+          <div class="font-bold text-brand-900">11 Qualifications</div>
+          <div class="text-xs text-slate-600">Levels 2 to 5 Diplomas</div>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-xl">🏛️</span>
+        <div>
+          <div class="font-bold text-brand-900">Gatehouse Awards</div>
+          <div class="text-xs text-slate-600">UK Ofqual-Regulated Body</div>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-xl">📍</span>
+        <div>
+          <div class="font-bold text-brand-900">London Headquarters</div>
+          <div class="text-xs text-slate-600">38 Woodgrange Rd, E7 0QH</div>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-xl">💬</span>
+        <div>
+          <div class="font-bold text-brand-900">WhatsApp Support</div>
+          <div class="text-xs text-slate-600">+44 7515 474714</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Progression Pathway (Crucial for Bangladeshi students & parents) -->
+  <section class="py-20 lg:py-24 bg-white border-b border-slate-200">
+    <div class="container-site">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-block text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-3 py-1 rounded-full mb-3 border border-amber-200">
+          Your Educational Journey
         </span>
-      </h1>
-      
-      <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-400 mb-10 leading-relaxed">
-        Engineered for speed, zero-JS hydration by default, and maximum hosting portability. Deploy for free on Vercel or drop it onto any cPanel, Plesk, or Docker VPS.
-      </p>
+        <h2 class="text-3xl md:text-4xl text-brand-900">
+          Progression Pathway to UK Higher Education &amp; Careers
+        </h2>
+        <p class="mt-4 text-slate-600 text-base sm:text-lg">
+          Our qualifications provide recognized credit-bearing milestones, allowing learners to advance step-by-step from foundational learning into advanced diplomas and university degrees.
+        </p>
+      </div>
 
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a
-          href="/admin/seo"
-          class="px-6 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white shadow-lg shadow-indigo-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
-        >
-          Open SEO Management Panel →
-        </a>
-        <a
-          href="/about"
-          class="px-6 py-3.5 rounded-xl font-semibold text-sm bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all"
-        >
-          Explore Architecture
-        </a>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        {pathwaySteps.map((s) => (
+          <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-xs flex flex-col justify-between hover:border-brand-600 transition-all hover:shadow-md">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class={`text-xs font-bold px-2.5 py-1 rounded-md border ${s.badgeColor}`}>
+                  {s.level}
+                </span>
+                <span class="text-2xl font-bold text-slate-300 font-serif">Step {s.step}</span>
+              </div>
+              <h3 class="text-xl font-bold text-brand-900 mb-3">{s.title}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-6">{s.description}</p>
+            </div>
+            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <span class="font-medium text-slate-700">{s.target}</span>
+              <a href="/courses" class="text-brand-700 font-semibold hover:underline">Explore →</a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-sm text-slate-600 max-w-2xl mx-auto">
+          Need personalized advice on which stage aligns with your current qualifications or HSC / A-Level results?
+        </p>
+        <div class="mt-4 flex justify-center gap-3">
+          <a
+            href="https://wa.me/447515474714?text=Hello%2C%20I%20am%20from%20Bangladesh%20and%20would%20like%20guidance%20on%20UK%20course%20progression."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-whatsapp text-xs"
+          >
+            Ask an Advisor on WhatsApp
+          </a>
+          <a href="/contact" class="btn-secondary text-xs">Book an Advisory Call</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Feature Grid -->
-  <section class="max-w-6xl mx-auto px-4 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Card 1 -->
-      <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-indigo-500/50 transition-all group">
-        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2">100/100 Core Web Vitals</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          Astro renders pure HTML with minimal client-side runtime, giving visitors instantaneous page loads and top Google ranking signals.
-        </p>
+  <!-- Educational Services -->
+  <section class="py-20 lg:py-24 bg-brand-50/60 border-b border-slate-200">
+    <div class="container-site">
+      <div class="max-w-2xl">
+        <span class="inline-block text-xs font-bold uppercase tracking-wider text-brand-700 bg-brand-100 px-3 py-1 rounded-full mb-3">
+          Support Services
+        </span>
+        <h2 class="text-3xl md:text-4xl text-brand-900">Our Educational Services</h2>
+        <p class="mt-3 text-lg text-slate-600">Dedicated guidance at every stage of your learning journey.</p>
       </div>
 
-      <!-- Card 2 -->
-      <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-purple-500/50 transition-all group">
-        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2">In-Dashboard SEO Control</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          Update Meta Titles, Descriptions, OpenGraph cards, Canonical URLs, and Schema.org JSON-LD dynamically with real-time Google search snippet previews.
-        </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-emerald-500/50 transition-all group">
-        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2">Universal Deployment</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">
-          Deploy onto Vercel for free using Turso SQLite, or run as a standalone Node.js server on cPanel, Plesk, CyberPanel, or Docker.
-        </p>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map((s) => (
+          <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-colors">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class={`text-[11px] font-bold px-2 py-0.5 rounded border uppercase tracking-wider ${s.color}`}>
+                  {s.badge}
+                </span>
+                <span class="text-sm font-bold text-slate-400 font-mono">{s.number}</span>
+              </div>
+              <h3 class="text-lg font-bold text-brand-900 mb-2">{s.title}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{s.text}</p>
+            </div>
+            <div class="pt-5 mt-5 border-t border-slate-100">
+              <a href="/contact" class="text-xs font-semibold text-brand-700 hover:text-brand-900 hover:underline">
+                Request details →
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Live SEO Status Demo Banner -->
-  <section class="max-w-4xl mx-auto px-4 py-12">
-    <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 sm:p-8 backdrop-blur">
-      <div class="flex items-center justify-between mb-4">
-        <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-400">Current Route SEO Inspection</h4>
-        <span class="px-2.5 py-1 text-xs rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Active in SQLite</span>
+  <!-- Featured Qualifications with Visual Color Badges -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="container-site">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div class="max-w-2xl">
+          <span class="inline-block text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-3 py-1 rounded-full mb-3 border border-amber-200">
+            Regulated Programmes
+          </span>
+          <h2 class="text-3xl md:text-4xl text-brand-900">Featured Gatehouse Awards Diplomas</h2>
+          <p class="mt-3 text-slate-600 text-base sm:text-lg">
+            Regulated qualifications in business innovation, management and international foundation studies.
+          </p>
+        </div>
+        <a href="/courses" class="btn-secondary shrink-0">
+          <span>View All 11 Qualifications</span>
+          <span>→</span>
+        </a>
       </div>
-      <div class="space-y-3 font-mono text-xs sm:text-sm">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-slate-800/60">
-          <span class="text-slate-500">Route:</span>
-          <span class="text-indigo-300 font-bold">/</span>
+
+      <!-- Clean Horizontal List Layout (restored spacious design with current colors) -->
+      <ul class="divide-y divide-slate-200 border-y border-slate-200">
+        {featured.map((c) => (
+          <li class="py-6 sm:py-7 hover:bg-brand-50/50 -mx-4 px-4 rounded-xl transition-colors">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div class="flex items-start gap-4">
+                <span class={`text-xs font-bold px-2.5 py-1 rounded-md border uppercase tracking-wider shrink-0 mt-1 ${getLevelBadgeStyle(c.level, c.category)}`}>
+                  {c.level}
+                </span>
+
+                <div class="space-y-1.5">
+                  <div class="flex flex-wrap items-center gap-2.5">
+                    <a
+                      href={`/courses#${c.id}`}
+                      class="font-serif text-lg sm:text-xl font-bold text-brand-900 hover:text-brand-600 transition-colors"
+                    >
+                      {c.title}
+                    </a>
+                    {c.credits && (
+                      <span class="text-xs text-brand-800 font-semibold bg-brand-100 px-2.5 py-0.5 rounded border border-brand-200 font-mono">
+                        {c.credits} Credits
+                      </span>
+                    )}
+                  </div>
+
+                  <p class="text-sm text-slate-600 line-clamp-2 max-w-3xl leading-relaxed">
+                    {c.overview}
+                  </p>
+
+                  <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-1">
+                    <span class="font-medium text-slate-700">{c.category}</span>
+                    {c.qualificationRef && !c.qualificationRef.includes('confirmed') && (
+                      <>
+                        <span class="text-slate-300">•</span>
+                        <span>QAN Ref: <strong class="font-mono text-slate-800">{c.qualificationRef}</strong></span>
+                      </>
+                    )}
+                    <span class="text-slate-300">•</span>
+                    <span>Awarding Body: <strong class="text-slate-700">Gatehouse Awards</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex items-center gap-2.5 shrink-0 self-end md:self-center">
+                <a
+                  href={`https://wa.me/447515474714?text=Hello%2C%20I%20am%20enquiring%20about%20${encodeURIComponent(c.title)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp !text-xs !py-2 !px-3.5 inline-flex items-center gap-1.5"
+                >
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.075-2.227-.557-1.745-.722-2.883-2.502-2.97-2.618-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.087-.179.182-.077.357.101.174.453.748.971 1.209.669.595 1.233.78 1.408.867.174.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.158.572 4.184 1.574 5.938l-1.574 5.754 5.922-1.553c1.706.942 3.666 1.477 5.753 1.477 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                  <span>WhatsApp</span>
+                </a>
+                <a
+                  href={`/courses#${c.id}`}
+                  class="btn-secondary !text-xs !py-2 !px-3.5"
+                >
+                  View Course →
+                </a>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Partner Spotlight -->
+  <section class="py-16 bg-brand-50 border-y border-slate-200">
+    <div class="container-site">
+      <div class="grid lg:grid-cols-12 gap-8 items-center bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 shadow-xs">
+        <div class="lg:col-span-8 space-y-4">
+          <span class="inline-block text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            Regulated UK Partner
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-brand-900">
+            Working in Partnership with Gatehouse Awards
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Gatehouse Awards (GA) is a leading UK awarding organisation recognised by <strong>Ofqual</strong>, the qualifications regulator in England. Infinity International Skills Development Ltd collaborates with Gatehouse Awards to promote selected qualifications in business, management, innovation, entrepreneurship and international foundation studies.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="/partner" class="btn-primary text-xs">About Our Partnership</a>
+            <a
+              href="https://gatehouseawards.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary text-xs"
+            >
+              Visit GatehouseAwards.org ↗
+            </a>
+          </div>
         </div>
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-slate-800/60">
-          <span class="text-slate-500">Meta Title:</span>
-          <span class="text-slate-200">Fastest Modern Web Platform with Built-in SEO</span>
-        </div>
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-slate-800/60">
-          <span class="text-slate-500">Sitemap Status:</span>
-          <span class="text-emerald-400">Included (Priority 1.0, Daily)</span>
+        <div class="lg:col-span-4 p-6 rounded-xl bg-brand-50 border border-slate-200 text-center space-y-2">
+          <div class="text-2xl">🏛️</div>
+          <div class="text-lg font-bold text-brand-900">Ofqual Regulated</div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            All promoted qualifications meet strict standards established by England's national regulator.
+          </p>
         </div>
       </div>
-      <div class="mt-6 text-center">
-        <a href="/admin/seo" class="text-xs text-indigo-400 hover:text-indigo-300 underline font-medium">
-          Edit this route's metadata in the SEO Panel →
+    </div>
+  </section>
+
+  <!-- CTA Box with WhatsApp & Call Options -->
+  <section class="py-16 container-site">
+    <div class="bg-gradient-to-r from-brand-900 via-brand-800 to-slate-900 rounded-2xl p-8 sm:p-14 text-white shadow-xl grid md:grid-cols-12 gap-8 items-center">
+      <div class="md:col-span-7 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Direct Consultation</span>
+        <h2 class="text-3xl sm:text-4xl text-white font-serif">Have questions about enrolment or entry requirements?</h2>
+        <p class="text-slate-300 text-base leading-relaxed">
+          Speak directly with our London advisory team. We assist learners from Bangladesh and around the world with qualification selection and study planning.
+        </p>
+      </div>
+      <div class="md:col-span-5 flex flex-col sm:flex-row md:flex-col gap-3 justify-center">
+        <a
+          href="https://wa.me/447515474714?text=Hello%2C%20I%20am%20enquiring%20about%20enrolment%20and%20course%20information."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-whatsapp text-center"
+        >
+          <span>Chat on WhatsApp (+44 7515 474714)</span>
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold bg-white text-brand-900 hover:bg-slate-100 transition-colors shadow-sm text-center"
+        >
+          Send an Online Enquiry
         </a>
       </div>
     </div>
   </section>
 </Layout>
-

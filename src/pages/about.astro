@@ -1,40 +1,103 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
 ---
 
-<Layout path="/about">
-  <section class="max-w-4xl mx-auto px-4 py-20">
-    <div class="mb-12">
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-        About Our Architecture
-      </h1>
-      <p class="text-lg text-slate-400">
-        How we achieve industry-leading Core Web Vitals while retaining real-time dynamic SEO control.
-      </p>
+<Layout
+  path="/about"
+  title="About Us"
+  description="Infinity International Skills Development Ltd is a London-based organisation committed to making quality education more accessible."
+>
+  <PageHeader
+    breadcrumb="About Us"
+    title="About Infinity International Skills Development"
+    intro="We are committed to making quality education more accessible and supporting learners throughout their educational journeys."
+  />
+
+  <section class="py-20 lg:py-24">
+    <div class="container-site grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="lg:col-span-7 prose-body">
+        <h2 class="text-3xl mb-6">Who we are</h2>
+        <p>
+          At Infinity International Skills Development Ltd, we are committed to making quality education more accessible
+          and supporting learners throughout their educational journeys.
+        </p>
+        <p>
+          We connect learners with experienced tutors and provide personalised learning support based on individual goals
+          and requirements. Whether students want to strengthen their academic performance, prepare for examinations,
+          develop professional skills or pursue further education, we aim to provide helpful guidance and flexible
+          learning opportunities.
+        </p>
+        <p>
+          Based in London, we support individuals seeking educational development and university admissions guidance,
+          helping them make informed decisions about their future.
+        </p>
+      </div>
+      <div class="lg:col-span-5">
+        <img
+          src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1000&q=75&auto=format&fit=crop"
+          alt="London skyline"
+          class="w-full aspect-[4/5] object-cover rounded-lg"
+          loading="lazy"
+        />
+      </div>
     </div>
+  </section>
 
-    <div class="prose prose-invert max-w-none space-y-8 text-slate-300">
-      <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
-        <h2 class="text-xl font-bold text-white mb-3">1. The Problem with Bloated CMSs</h2>
-        <p class="leading-relaxed text-sm text-slate-400">
-          Traditional platforms like WordPress or heavy React SPAs ship megabytes of unused JavaScript, heavy plugins, and bulky database queries. This kills Google PageSpeed metrics and hurts organic ranking positions.
+  <section class="py-20 bg-brand-50 border-y border-slate-200">
+    <div class="container-site grid md:grid-cols-2 gap-12 lg:gap-20">
+      <div>
+        <h2 class="text-2xl md:text-3xl">Our mission</h2>
+        <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+          To empower learners through accessible educational support, practical guidance and opportunities for academic
+          and professional development.
         </p>
       </div>
-
-      <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
-        <h2 class="text-xl font-bold text-white mb-3">2. The Astro Islands Advantage</h2>
-        <p class="leading-relaxed text-sm text-slate-400">
-          Astro strips away 100% of the client-side JavaScript for marketing pages by default. The browser receives clean HTML, pre-rendered CSS, and optimized media. Dynamic interactive widgets (like our live SEO SERP preview) are loaded only where specifically needed.
-        </p>
-      </div>
-
-      <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
-        <h2 class="text-xl font-bold text-white mb-3">3. Unified SQLite Storage</h2>
-        <p class="leading-relaxed text-sm text-slate-400">
-          By utilizing LibSQL, you have the choice between an embedded zero-maintenance local file (`file:local.db`) for cPanel/VPS, or Turso's cloud edge SQLite for free zero-cost serverless hosting on Vercel.
+      <div>
+        <h2 class="text-2xl md:text-3xl">Our vision</h2>
+        <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+          To help individuals develop the knowledge, confidence and skills needed to achieve their educational and career
+          aspirations.
         </p>
       </div>
     </div>
   </section>
-</Layout>
 
+  <section class="py-20">
+    <div class="container-site grid lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-4">
+        <h2 class="text-2xl md:text-3xl">Company information</h2>
+      </div>
+      <dl class="lg:col-span-8 divide-y divide-slate-200 border-y border-slate-200 text-[15px]">
+        <div class="grid sm:grid-cols-3 gap-2 py-4">
+          <dt class="text-slate-500">Registered name</dt>
+          <dd class="sm:col-span-2 text-slate-900">Infinity International Skills Development Ltd</dd>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-2 py-4">
+          <dt class="text-slate-500">Company number</dt>
+          <dd class="sm:col-span-2 text-slate-900">13770605</dd>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-2 py-4">
+          <dt class="text-slate-500">Registered office</dt>
+          <dd class="sm:col-span-2 text-slate-900">38 Woodgrange Road, London, England, E7 0QH</dd>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-2 py-4">
+          <dt class="text-slate-500">Industry</dt>
+          <dd class="sm:col-span-2 text-slate-900">Educational Services &amp; Professional Qualifications</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="container-site">
+    <div class="bg-brand-800 rounded-lg px-8 py-14 md:px-14 grid md:grid-cols-3 gap-8 items-center">
+      <div class="md:col-span-2">
+        <h2 class="text-3xl text-white">Find the right qualification</h2>
+        <p class="mt-3 text-slate-300 text-lg">Explore our courses or speak with our team for guidance.</p>
+      </div>
+      <div class="flex md:justify-end gap-3 flex-wrap">
+        <a href="/courses" class="inline-flex items-center px-6 py-3 rounded-md text-sm font-medium bg-white text-brand-900 hover:bg-slate-100">View Courses</a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -8,13 +8,20 @@ export const GET: APIRoute = async ({ url }) => {
   const siteUrl = process.env.SITE_URL || url.origin;
   const [settings] = await db.select().from(siteSettings).limit(1);
 
-  let robotsContent = settings?.robotsTxtCustom || 'User-agent: *\nAllow: /';
+  let robotsContent = settings?.robotsTxtCustom || 'User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /blog\nDisallow: /api/';
+
+  // Ensure /blog and /admin are disallowed while blog is hidden
+  if (!robotsContent.includes('Disallow: /blog')) {
+    robotsContent += '\nDisallow: /blog';
+  }
+  if (!robotsContent.includes('Disallow: /admin')) {
+    robotsContent += '\nDisallow: /admin';
+  }
 
   // Ensure Sitemap line exists with absolute URL
   if (!robotsContent.includes('Sitemap:')) {
     robotsContent += `\n\nSitemap: ${siteUrl}/sitemap.xml`;
   } else {
-    // Replace relative sitemap path with absolute if needed
     robotsContent = robotsContent.replace('Sitemap: /sitemap.xml', `Sitemap: ${siteUrl}/sitemap.xml`);
   }
 
@@ -25,4 +32,3 @@ export const GET: APIRoute = async ({ url }) => {
     },
   });
 };
-

@@ -1,0 +1,236 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { courses } from '../data/courses';
+
+const groups = [
+  { id: 'business-management', name: 'Business & Management' },
+  { id: 'international-foundation', name: 'International Foundation' },
+  { id: 'business-administration', name: 'Business Administration' },
+] as const;
+
+const hasRef = (ref?: string) => !!ref && !ref.toLowerCase().includes('confirmed');
+
+function getLevelBadgeStyle(level: string, category: string): string {
+  if (category === 'International Foundation') return 'bg-emerald-100 text-emerald-800 border-emerald-300';
+  if (level.includes('Level 5')) return 'bg-indigo-100 text-indigo-900 border-indigo-300';
+  if (level.includes('Level 4')) return 'bg-blue-100 text-blue-800 border-blue-300';
+  if (level.includes('Level 3')) return 'bg-amber-100 text-amber-800 border-amber-300';
+  return 'bg-slate-100 text-slate-800 border-slate-300';
+}
+---
+
+<Layout
+  path="/courses"
+  title="Explore Our Courses"
+  description="Gatehouse Awards qualifications in business, management, innovation, entrepreneurship and business administration, from Level 2 to Level 5."
+>
+  <PageHeader
+    breadcrumb="Courses"
+    title="Explore our courses"
+    intro="A selection of Gatehouse Awards qualifications in business, management, innovation, entrepreneurship and business administration, supporting learners at different stages of their academic and professional development."
+  />
+
+  <!-- Top Advice Callout for Bangladeshi & International Applicants -->
+  <section class="bg-amber-50/70 border-b border-amber-200 py-3.5 px-4">
+    <div class="container-site flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm text-amber-950">
+      <div class="flex items-center gap-2">
+        <span class="text-base">💡</span>
+        <span><strong>Student Advice:</strong> Need help selecting between Level 3 Foundation or Level 4/5 Management? Contact our advisors directly.</span>
+      </div>
+      <a
+        href="https://wa.me/447515474714?text=Hello%2C%20I%20would%20like%20course%20recommendations%20for%20my%20academic%20background."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 font-semibold text-emerald-800 hover:text-emerald-900 underline flex-shrink-0"
+      >
+        <span>Ask on WhatsApp</span>
+        <span>→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-white">
+    <div class="container-site grid lg:grid-cols-12 gap-12">
+      <!-- Sidebar -->
+      <aside class="lg:col-span-3">
+        <div class="lg:sticky lg:top-32 space-y-8">
+          <nav aria-label="Course categories" class="bg-brand-50/80 p-5 rounded-xl border border-slate-200">
+            <h2 class="font-sans text-xs font-bold uppercase tracking-wider text-brand-900 mb-3">Categories</h2>
+            <ul class="space-y-2 text-sm">
+              {groups.map((g) => (
+                <li>
+                  <a href={`#${g.id}`} class="font-medium text-slate-700 hover:text-brand-900 hover:underline">
+                    {g.name}
+                    <span class="text-xs text-slate-500 font-mono"> ({courses.filter((c) => c.category === g.name).length})</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          
+          <div class="border border-emerald-200 bg-emerald-50/60 rounded-xl p-5 text-sm text-emerald-950 space-y-3">
+            <div class="font-bold flex items-center gap-1.5 text-emerald-900">
+              <span>💬 Direct Consultation</span>
+            </div>
+            <p class="text-xs text-emerald-900 leading-relaxed">
+              We provide fast guidance for learners in Bangladesh on qualification recognition and admissions.
+            </p>
+            <a
+              href="https://wa.me/447515474714?text=Hello%2C%20I%20need%20help%20choosing%20a%20Gatehouse%20Awards%20course."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp w-full !text-xs !py-2 text-center"
+            >
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Course list -->
+      <div class="lg:col-span-9 space-y-16">
+        {groups.map((g) => (
+          <section id={g.id} class="scroll-mt-32">
+            <div class="flex items-center justify-between pb-4 border-b-2 border-brand-800">
+              <h2 class="text-2xl md:text-3xl text-brand-900">{g.name}</h2>
+              <span class="text-xs font-bold px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-mono">
+                {courses.filter((c) => c.category === g.name).length} Qualifications
+              </span>
+            </div>
+
+            <div class="divide-y divide-slate-200 border-b border-slate-200">
+              {courses
+                .filter((c) => c.category === g.name)
+                .map((c) => (
+                  <details id={c.id} class="group scroll-mt-32">
+                    <summary class="flex items-start justify-between gap-6 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-slate-50/60 -mx-3 px-3 rounded-lg transition-colors">
+                      <div>
+                        <div class="flex items-center gap-2">
+                          <span class={`text-xs font-bold px-2.5 py-0.5 rounded border uppercase tracking-wider ${getLevelBadgeStyle(c.level, c.category)}`}>
+                            {c.level}
+                          </span>
+                          {c.ageRequirement && (
+                            <span class="text-xs text-slate-500 font-medium">{c.ageRequirement}</span>
+                          )}
+                          {c.credits && (
+                            <span class="text-xs text-brand-800 font-semibold bg-brand-50 px-2 py-0.5 rounded border border-brand-200">
+                              {c.credits} Credits
+                            </span>
+                          )}
+                        </div>
+                        <h3 class="mt-2 text-xl leading-snug text-brand-900 group-hover:text-brand-600 transition-colors">
+                          {c.title}
+                        </h3>
+                      </div>
+                      <span
+                        class="mt-2 shrink-0 w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 group-hover:border-brand-600 group-hover:text-brand-600 transition-all group-open:rotate-45"
+                        aria-hidden="true"
+                      >
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" d="M12 5v14M5 12h14" />
+                        </svg>
+                      </span>
+                    </summary>
+
+                    <div class="pb-10 pt-2 grid md:grid-cols-12 gap-8">
+                      <div class="md:col-span-7 space-y-6">
+                        <div>
+                          <h4 class="font-sans text-xs font-bold uppercase tracking-wider text-slate-900 mb-1.5">Overview</h4>
+                          <p class="text-[15px] text-slate-600 leading-[1.75]">{c.overview}</p>
+                        </div>
+
+                        <div>
+                          <h4 class="font-sans text-xs font-bold uppercase tracking-wider text-slate-900 mb-2">Who is this course for?</h4>
+                          <ul class="space-y-2 text-[15px] text-slate-600 leading-relaxed list-disc pl-5 marker:text-amber-500">
+                            {c.targetAudience.map((a) => <li>{a}</li>)}
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="md:col-span-5 space-y-4">
+                        <dl class="bg-brand-50 rounded-xl p-6 text-sm divide-y divide-slate-200 border border-slate-200">
+                          <div class="flex justify-between gap-4 pb-3">
+                            <dt class="text-slate-500">Awarding body</dt>
+                            <dd class="text-slate-900 font-semibold text-right">{c.awardingBody}</dd>
+                          </div>
+                          <div class="flex justify-between gap-4 py-3">
+                            <dt class="text-slate-500">Level</dt>
+                            <dd class="text-slate-900 font-medium">{c.level}</dd>
+                          </div>
+                          {hasRef(c.qualificationRef) && (
+                            <div class="flex justify-between gap-4 py-3">
+                              <dt class="text-slate-500">Qualification Ref</dt>
+                              <dd class="text-slate-900 font-mono font-bold text-brand-800">{c.qualificationRef}</dd>
+                            </div>
+                          )}
+                          {c.glh && (
+                            <div class="flex justify-between gap-4 py-3">
+                              <dt class="text-slate-500">Guided Learning Hours (GLH)</dt>
+                              <dd class="text-slate-900 font-medium">{c.glh}</dd>
+                            </div>
+                          )}
+                          {c.tqt && (
+                            <div class="flex justify-between gap-4 py-3">
+                              <dt class="text-slate-500">Total Qual. Time (TQT)</dt>
+                              <dd class="text-slate-900 font-medium">{c.tqt}</dd>
+                            </div>
+                          )}
+                          {c.credits && (
+                            <div class="flex justify-between gap-4 pt-3">
+                              <dt class="text-slate-500">Credits</dt>
+                              <dd class="text-slate-900 font-bold text-amber-700">{c.credits}</dd>
+                            </div>
+                          )}
+                        </dl>
+
+                        <!-- Actions: WhatsApp + Form -->
+                        <div class="space-y-2">
+                          <a
+                            href={`https://wa.me/447515474714?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20${encodeURIComponent(c.title)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-whatsapp w-full text-center"
+                          >
+                            <span>Chat on WhatsApp</span>
+                          </a>
+                          <a
+                            href={`/contact?course=${encodeURIComponent(c.title)}`}
+                            class="btn-secondary w-full text-center"
+                          >
+                            <span>Submit Enquiry Form</span>
+                          </a>
+                        </div>
+
+                        <a
+                          href={c.specificationUrl || 'https://gatehouseawards.org/'}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="block text-center text-xs text-slate-500 hover:text-brand-800 hover:underline pt-1"
+                        >
+                          View Official Specification at Gatehouse Awards ↗
+                        </a>
+                      </div>
+                    </div>
+                  </details>
+                ))}
+            </div>
+          </section>
+        ))}
+
+        <div class="p-6 rounded-xl bg-brand-50 border border-slate-200 text-sm text-slate-600 leading-relaxed">
+          <strong class="text-slate-900 font-semibold">Regulatory transparency:</strong> These qualifications are awarded by Gatehouse Awards, an awarding organisation recognised by Ofqual in England. Infinity International Skills Development Ltd promotes selected qualifications and provides dedicated learner guidance and admissions support.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const openFromHash = () => {
+      const el = location.hash ? document.getElementById(location.hash.slice(1)) : null;
+      if (el instanceof HTMLDetailsElement) el.open = true;
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+  </script>
+</Layout>
