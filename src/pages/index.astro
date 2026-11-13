@@ -10,13 +10,12 @@ const services = [
     title: 'Personalised Learning Guidance',
     text: 'One-to-one advice tailored to your previous education and career goals, helping you choose the right qualification route with confidence.',
     badge: 'Guidance',
-    badgeStyle: 'bg-amber-200/90 text-amber-950 border-amber-400 font-bold',
-    accentGradient: 'from-amber-400 via-amber-500 to-orange-500',
-    iconBg: 'bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-amber-500/30',
-    cardBorderHover: 'hover:border-amber-500 hover:shadow-amber-500/20',
-    cardBg: 'bg-gradient-to-br from-amber-100/70 via-orange-50/60 to-amber-50 border-2 border-amber-300',
-    footerBorder: 'border-amber-200/90',
-    footerLink: 'text-amber-800 hover:text-amber-950',
+    cardBg: 'bg-[#FDF2EE]',
+    cardBorder: 'border-[#EBC6B8] hover:border-[#B5532E]',
+    topRule: 'border-t-[#B5532E]',
+    iconBg: 'bg-[#B5532E] text-white',
+    badgeStyle: 'bg-[#F9E1D8] text-[#7D3216]',
+    linkColor: 'text-[#963E1D] hover:text-[#6B2A11]',
     icon: 'compass',
   },
   {
@@ -24,13 +23,12 @@ const services = [
     title: 'Tutoring Support',
     text: 'Access to experienced subject tutors who help strengthen your knowledge, prepare for assessments, and build successful study habits.',
     badge: 'Tutoring',
-    badgeStyle: 'bg-blue-200/90 text-blue-950 border-blue-400 font-bold',
-    accentGradient: 'from-blue-500 via-indigo-500 to-blue-600',
-    iconBg: 'bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-blue-500/30',
-    cardBorderHover: 'hover:border-blue-500 hover:shadow-blue-500/20',
-    cardBg: 'bg-gradient-to-br from-blue-100/70 via-indigo-50/60 to-sky-50 border-2 border-blue-300',
-    footerBorder: 'border-blue-200/90',
-    footerLink: 'text-blue-800 hover:text-blue-950',
+    cardBg: 'bg-[#EDF5F7]',
+    cardBorder: 'border-[#C2DCE3] hover:border-[#144D5E]',
+    topRule: 'border-t-[#144D5E]',
+    iconBg: 'bg-[#144D5E] text-white',
+    badgeStyle: 'bg-[#D7E9EE] text-[#0E3946]',
+    linkColor: 'text-[#144D5E] hover:text-[#0B2D38]',
     icon: 'tutoring',
   },
   {
@@ -38,13 +36,12 @@ const services = [
     title: 'Skills Development',
     text: 'Practical opportunities to develop commercial, administrative and entrepreneurial capabilities that prepare you for the workplace.',
     badge: 'Skills',
-    badgeStyle: 'bg-emerald-200/90 text-emerald-950 border-emerald-400 font-bold',
-    accentGradient: 'from-emerald-500 via-teal-500 to-emerald-600',
-    iconBg: 'bg-gradient-to-br from-emerald-600 to-teal-600 text-white shadow-emerald-500/30',
-    cardBorderHover: 'hover:border-emerald-500 hover:shadow-emerald-500/20',
-    cardBg: 'bg-gradient-to-br from-emerald-100/70 via-teal-50/60 to-emerald-50 border-2 border-emerald-300',
-    footerBorder: 'border-emerald-200/90',
-    footerLink: 'text-emerald-800 hover:text-emerald-950',
+    cardBg: 'bg-[#EFF6F2]',
+    cardBorder: 'border-[#C1DDD1] hover:border-[#174E3B]',
+    topRule: 'border-t-[#174E3B]',
+    iconBg: 'bg-[#174E3B] text-white',
+    badgeStyle: 'bg-[#D6EAE0] text-[#113B2C]',
+    linkColor: 'text-[#174E3B] hover:text-[#0E3326]',
     icon: 'skills',
   },
   {
@@ -52,13 +49,12 @@ const services = [
     title: 'University Admissions Guidance',
     text: 'Structured support in understanding UK higher education pathways, entry requirements, UCAS applications, and foundation routes.',
     badge: 'Admissions',
-    badgeStyle: 'bg-purple-200/90 text-purple-950 border-purple-400 font-bold',
-    accentGradient: 'from-purple-500 via-indigo-600 to-purple-600',
-    iconBg: 'bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-purple-500/30',
-    cardBorderHover: 'hover:border-purple-500 hover:shadow-purple-500/20',
-    cardBg: 'bg-gradient-to-br from-purple-100/70 via-fuchsia-50/60 to-indigo-50 border-2 border-purple-300',
-    footerBorder: 'border-purple-200/90',
-    footerLink: 'text-purple-800 hover:text-purple-950',
+    cardBg: 'bg-[#FAF0F2]',
+    cardBorder: 'border-[#E5C4CC] hover:border-[#742233]',
+    topRule: 'border-t-[#742233]',
+    iconBg: 'bg-[#742233] text-white',
+    badgeStyle: 'bg-[#F2DCE1] text-[#591826]',
+    linkColor: 'text-[#742233] hover:text-[#4F1521]',
     icon: 'admissions',
   },
 ];
@@ -70,14 +66,13 @@ const pathwaySteps = [
     title: 'Foundation & Entry Pathways',
     description: 'Establish core business, IT, and administrative skills. Perfect for learners preparing for higher education or entering employment.',
     target: 'Age 16+ · High School graduates',
-    accentBar: 'bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500',
-    badgeColor: 'bg-amber-200/90 text-amber-950 border-amber-400 font-bold',
-    stepBadge: 'bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-amber-500/35',
-    cardBg: 'bg-gradient-to-br from-amber-100/70 via-amber-50/80 to-orange-50/60',
-    borderColor: 'border-2 border-amber-300 hover:border-amber-500',
-    shadowColor: 'hover:shadow-amber-500/20',
-    targetBg: 'bg-amber-200/60 text-amber-950 border-t-2 border-amber-200/90',
-    exploreText: 'text-amber-800 hover:text-amber-950',
+    cardBg: 'bg-[#FDF7EC]',
+    borderColor: 'border-[#E8D5B5] hover:border-[#C48329]',
+    topBar: 'bg-[#C48329]',
+    badgeColor: 'bg-[#F4E4C3] text-[#6E450D]',
+    stepBadge: 'bg-[#C48329] text-white',
+    footerBg: 'bg-[#F6EAD3] border-t border-[#E8D5B5] text-[#5E3A09]',
+    exploreLink: 'text-[#8C5810] hover:text-[#5E3A09]',
   },
   {
     step: '02',
@@ -85,14 +80,13 @@ const pathwaySteps = [
     title: 'Advanced Business & Management',
     description: 'Equivalent in academic rigor to the first two years of a UK undergraduate degree, covering leadership, strategy, and operations.',
     target: 'Undergraduate level study',
-    accentBar: 'bg-gradient-to-r from-blue-500 via-indigo-600 to-blue-700',
-    badgeColor: 'bg-blue-200/90 text-blue-950 border-blue-400 font-bold',
-    stepBadge: 'bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-blue-500/35',
-    cardBg: 'bg-gradient-to-br from-blue-100/70 via-blue-50/80 to-indigo-50/60',
-    borderColor: 'border-2 border-blue-300 hover:border-blue-500',
-    shadowColor: 'hover:shadow-blue-500/20',
-    targetBg: 'bg-blue-200/60 text-blue-950 border-t-2 border-blue-200/90',
-    exploreText: 'text-blue-800 hover:text-blue-950',
+    cardBg: 'bg-[#EFF6F8]',
+    borderColor: 'border-[#C2DCE3] hover:border-[#144D5E]',
+    topBar: 'bg-[#144D5E]',
+    badgeColor: 'bg-[#D7E9EE] text-[#0E3946]',
+    stepBadge: 'bg-[#144D5E] text-white',
+    footerBg: 'bg-[#DFEEF2] border-t border-[#C2DCE3] text-[#0E3946]',
+    exploreLink: 'text-[#144D5E] hover:text-[#092832]',
   },
   {
     step: '03',
@@ -100,80 +94,69 @@ const pathwaySteps = [
     title: 'Degree Top-Up & Career Advancement',
     description: 'Use your recognised credits towards university progression, Bachelor top-up degrees, or managerial positions in the international marketplace.',
     target: 'University & Professional roles',
-    accentBar: 'bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600',
-    badgeColor: 'bg-emerald-200/90 text-emerald-950 border-emerald-400 font-bold',
-    stepBadge: 'bg-gradient-to-br from-emerald-600 to-teal-600 text-white shadow-emerald-500/35',
-    cardBg: 'bg-gradient-to-br from-emerald-100/70 via-emerald-50/80 to-teal-50/60',
-    borderColor: 'border-2 border-emerald-300 hover:border-emerald-500',
-    shadowColor: 'hover:shadow-emerald-500/20',
-    targetBg: 'bg-emerald-200/60 text-emerald-950 border-t-2 border-emerald-200/90',
-    exploreText: 'text-emerald-800 hover:text-emerald-950',
+    cardBg: 'bg-[#EFF6F2]',
+    borderColor: 'border-[#C1DDD1] hover:border-[#174E3B]',
+    topBar: 'bg-[#174E3B]',
+    badgeColor: 'bg-[#D6EAE0] text-[#113B2C]',
+    stepBadge: 'bg-[#174E3B] text-white',
+    footerBg: 'bg-[#DCECE4] border-t border-[#C1DDD1] text-[#113B2C]',
+    exploreLink: 'text-[#174E3B] hover:text-[#0B2B20]',
   },
 ];
 
 function getCourseTheme(level: string, category: string) {
   if (category === 'International Foundation') {
     return {
-      cardBg: 'bg-gradient-to-r from-emerald-100/60 via-teal-50/50 to-white',
-      borderLeft: 'border-l-[6px] border-l-emerald-600 border-2 border-emerald-300',
-      badgeBg: 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold border border-emerald-700 shadow-xs',
-      creditsBg: 'bg-emerald-200/90 text-emerald-950 border border-emerald-400 font-bold',
-      cardHover: 'hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/15',
-      dotColor: 'bg-emerald-600',
-      tagText: 'text-emerald-900',
-      titleHover: 'hover:text-emerald-700',
-      iconEmoji: '🌍',
+      cardBg: 'bg-[#F0F7F3]',
+      border: 'border-[#C3DFD0] border-l-4 border-l-[#174E3B] hover:border-[#174E3B]',
+      badgeBg: 'bg-[#174E3B] text-white',
+      creditsBg: 'bg-[#DCEEE4] text-[#113B2C]',
+      dotColor: 'bg-[#174E3B]',
+      tagText: 'text-[#113B2C]',
+      titleHover: 'hover:text-[#174E3B]',
     };
   }
   if (level.includes('Level 5')) {
     return {
-      cardBg: 'bg-gradient-to-r from-purple-100/60 via-indigo-50/50 to-white',
-      borderLeft: 'border-l-[6px] border-l-purple-600 border-2 border-purple-300',
-      badgeBg: 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold border border-purple-700 shadow-xs',
-      creditsBg: 'bg-purple-200/90 text-purple-950 border border-purple-400 font-bold',
-      cardHover: 'hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/15',
-      dotColor: 'bg-purple-600',
-      tagText: 'text-purple-900',
-      titleHover: 'hover:text-purple-700',
-      iconEmoji: '🎯',
+      cardBg: 'bg-[#FAF1F3]',
+      border: 'border-[#E5C4CC] border-l-4 border-l-[#742233] hover:border-[#742233]',
+      badgeBg: 'bg-[#742233] text-white',
+      creditsBg: 'bg-[#F2DCE1] text-[#591826]',
+      dotColor: 'bg-[#742233]',
+      tagText: 'text-[#591826]',
+      titleHover: 'hover:text-[#742233]',
     };
   }
   if (level.includes('Level 4')) {
     return {
-      cardBg: 'bg-gradient-to-r from-blue-100/60 via-indigo-50/50 to-white',
-      borderLeft: 'border-l-[6px] border-l-blue-600 border-2 border-blue-300',
-      badgeBg: 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold border border-blue-700 shadow-xs',
-      creditsBg: 'bg-blue-200/90 text-blue-950 border border-blue-400 font-bold',
-      cardHover: 'hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/15',
-      dotColor: 'bg-blue-600',
-      tagText: 'text-blue-900',
-      titleHover: 'hover:text-blue-700',
-      iconEmoji: '💼',
+      cardBg: 'bg-[#F0F6F8]',
+      border: 'border-[#C5DCE3] border-l-4 border-l-[#144D5E] hover:border-[#144D5E]',
+      badgeBg: 'bg-[#144D5E] text-white',
+      creditsBg: 'bg-[#DCEBF0] text-[#0E3946]',
+      dotColor: 'bg-[#144D5E]',
+      tagText: 'text-[#0E3946]',
+      titleHover: 'hover:text-[#144D5E]',
     };
   }
   if (level.includes('Level 3')) {
     return {
-      cardBg: 'bg-gradient-to-r from-amber-100/60 via-orange-50/50 to-white',
-      borderLeft: 'border-l-[6px] border-l-amber-500 border-2 border-amber-300',
-      badgeBg: 'bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold border border-amber-600 shadow-xs',
-      creditsBg: 'bg-amber-200/90 text-amber-950 border border-amber-400 font-bold',
-      cardHover: 'hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/15',
-      dotColor: 'bg-amber-600',
-      tagText: 'text-amber-900',
-      titleHover: 'hover:text-amber-700',
-      iconEmoji: '💡',
+      cardBg: 'bg-[#FDF8EE]',
+      border: 'border-[#E8D7B9] border-l-4 border-l-[#C48329] hover:border-[#C48329]',
+      badgeBg: 'bg-[#C48329] text-white',
+      creditsBg: 'bg-[#F4E6CA] text-[#6E450D]',
+      dotColor: 'bg-[#C48329]',
+      tagText: 'text-[#6E450D]',
+      titleHover: 'hover:text-[#9E6518]',
     };
   }
   return {
-    cardBg: 'bg-gradient-to-r from-slate-100/60 via-slate-50 to-white',
-    borderLeft: 'border-l-[6px] border-l-slate-500 border-2 border-slate-300',
-    badgeBg: 'bg-slate-700 text-white font-bold border border-slate-800 shadow-xs',
-    creditsBg: 'bg-slate-200 text-slate-900 border border-slate-300 font-bold',
-    cardHover: 'hover:border-slate-400 hover:shadow-lg hover:shadow-slate-500/10',
-    dotColor: 'bg-slate-600',
-    tagText: 'text-slate-900',
-    titleHover: 'hover:text-slate-800',
-    iconEmoji: '📚',
+    cardBg: 'bg-[#F5F4F0]',
+    border: 'border-slate-300 border-l-4 border-l-[#102347] hover:border-[#102347]',
+    badgeBg: 'bg-[#102347] text-white',
+    creditsBg: 'bg-slate-200 text-[#102347]',
+    dotColor: 'bg-[#102347]',
+    tagText: 'text-[#102347]',
+    titleHover: 'hover:text-[#102347]',
   };
 }
 ---
@@ -183,50 +166,40 @@ function getCourseTheme(level: string, category: string) {
   title="Empowering Learners. Inspiring Futures."
   description="Infinity International Skills Development Ltd supports learners through personalised educational guidance, skills development and access to recognised Gatehouse Awards qualifications."
 >
-  <!-- Hero Section with Rich Ambient Colorful Glows -->
-  <section class="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-blue-50/80 via-indigo-50/40 to-white">
-    <!-- Ambient decorative color glows -->
-    <div class="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-br from-amber-400/25 via-orange-300/20 to-transparent rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute top-1/3 -right-28 w-[32rem] h-[32rem] bg-gradient-to-bl from-blue-400/25 via-indigo-300/20 to-emerald-300/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-
-    <div class="container-site grid lg:grid-cols-12 gap-12 lg:gap-14 items-center py-16 lg:py-24 relative">
+  <!-- Hero Section -->
+  <section class="border-b border-[#E5DFD3] bg-[#FAF8F4]">
+    <div class="container-site grid lg:grid-cols-12 gap-12 lg:gap-14 items-center py-16 lg:py-22">
       <div class="lg:col-span-7">
-        <!-- Trust badge with vibrant gradient styling -->
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-100 via-indigo-100 to-amber-100 border border-blue-200/80 text-brand-900 shadow-xs mb-6">
-          <span class="flex h-2.5 w-2.5 relative">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-          </span>
-          <span class="tracking-wide">Educational Support &amp; Regulated UK Qualifications</span>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-md text-xs font-semibold bg-[#EFE9DD] border border-[#DDD3C1] text-[#102347] mb-6">
+          <span class="w-2 h-2 rounded-xs bg-[#B8893B]"></span>
+          <span class="tracking-wide uppercase">Educational Support &amp; Regulated UK Qualifications</span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl leading-[1.12] text-brand-900 font-serif">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl leading-[1.1] text-[#102347] font-serif">
           Empowering Learners. <br />
-          <span class="bg-gradient-to-r from-amber-600 via-orange-500 to-amber-700 bg-clip-text text-transparent italic font-serif">
-            Inspiring Futures.
-          </span>
+          <span class="text-[#B5532E] italic font-serif">Inspiring Futures.</span>
         </h1>
 
-        <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
-          At <strong class="text-slate-900 font-semibold">Infinity International Skills Development Ltd</strong>, we believe quality education should be accessible to everyone. We support learners through personalised guidance, skills development and access to information about recognised UK professional qualifications.
+        <p class="mt-6 text-lg text-slate-700 leading-relaxed max-w-xl">
+          At <strong class="text-[#102347] font-semibold">Infinity International Skills Development Ltd</strong>, we believe quality education should be accessible to everyone. We support learners through personalised guidance, skills development and access to information about recognised UK professional qualifications.
         </p>
 
-        <!-- CTAs: Primary + WhatsApp + Enquiry with enhanced color & shadows -->
+        <!-- CTAs -->
         <div class="mt-8 flex flex-wrap gap-3.5 items-center">
           <a
             href="/courses"
-            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold bg-gradient-to-r from-brand-800 via-brand-700 to-blue-700 hover:from-brand-900 hover:to-blue-800 text-white shadow-md shadow-brand-900/20 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg text-sm font-semibold bg-[#102347] hover:bg-[#0A1833] text-white transition-colors"
           >
             <span>Explore Courses</span>
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
           <a
             href="https://wa.me/447515474714?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20UK%20qualifications%20and%20admissions."
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-md shadow-emerald-700/20 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+            class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg text-sm font-semibold bg-[#174E3B] hover:bg-[#113B2C] text-white transition-colors"
           >
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
               <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.075-2.227-.557-1.745-.722-2.883-2.502-2.97-2.618-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.087-.179.182-.077.357.101.174.453.748.971 1.209.669.595 1.233.78 1.408.867.174.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.158.572 4.184 1.574 5.938l-1.574 5.754 5.922-1.553c1.706.942 3.666 1.477 5.753 1.477 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z" />
@@ -235,108 +208,105 @@ function getCourseTheme(level: string, category: string) {
           </a>
           <a
             href="/contact"
-            class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold border-2 border-slate-300 text-slate-800 bg-white hover:border-amber-400 hover:bg-amber-50/50 shadow-xs hover:-translate-y-0.5 transition-all"
+            class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg text-sm font-semibold border border-[#C9C0B0] text-[#102347] bg-white hover:border-[#102347] transition-colors"
           >
             <span>Make an Enquiry</span>
           </a>
         </div>
       </div>
 
-      <!-- Hero Visual Image with Highlights and Colorful Badges -->
+      <!-- Hero Visual Image with Offset Solid Frame -->
       <div class="lg:col-span-5 relative">
-        <!-- Vibrant gradient halo frame around image -->
-        <div class="p-2.5 rounded-3xl bg-gradient-to-br from-amber-400 via-blue-400 to-emerald-400 shadow-xl shadow-indigo-950/15">
-          <div class="rounded-2xl overflow-hidden bg-white">
-            <img
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1000&q=75&auto=format&fit=crop"
-              alt="Students collaborating on coursework"
-              class="w-full aspect-[4/3] object-cover hover:scale-102 transition-transform duration-500"
-              width="1000"
-              height="750"
-              fetchpriority="high"
-            />
-          </div>
+        <div class="hidden sm:block absolute inset-0 translate-x-3 translate-y-3 rounded-xl bg-[#B8893B]/25 border border-[#B8893B]/40" aria-hidden="true"></div>
+        <div class="relative rounded-xl overflow-hidden border border-[#DDD3C1] bg-white shadow-md">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1000&q=75&auto=format&fit=crop"
+            alt="Students collaborating on coursework"
+            class="w-full aspect-[4/3] object-cover"
+            width="1000"
+            height="750"
+            fetchpriority="high"
+          />
         </div>
 
-        <!-- Floating Badge 1: Regulated Gatehouse Awards -->
-        <div class="hidden sm:flex absolute -bottom-5 -left-5 bg-gradient-to-r from-emerald-50 via-teal-50 to-white border-2 border-emerald-300 rounded-2xl p-4 shadow-xl shadow-emerald-950/15 items-center gap-3">
-          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-emerald-600/35">
-            ✓
+        <!-- Crisp Navy Accreditation Card -->
+        <div class="hidden sm:flex absolute -bottom-5 -left-5 bg-[#102347] text-white rounded-lg px-4 py-3.5 shadow-lg items-center gap-3 border border-[#233B6B]">
+          <div class="w-9 h-9 rounded-md bg-[#B8893B] text-[#102347] flex items-center justify-center font-bold text-base shrink-0">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
           </div>
-          <div class="text-xs">
-            <span class="block font-bold text-emerald-950 text-sm">Ofqual Regulated</span>
-            <span class="text-emerald-800 font-semibold">Gatehouse Awards Qualifications</span>
-          </div>
-        </div>
-
-        <!-- Floating Badge 2: London & Global Badge -->
-        <div class="hidden sm:flex absolute -top-4 -right-4 bg-gradient-to-r from-amber-50 via-orange-50 to-white border-2 border-amber-300 rounded-2xl px-4 py-3 shadow-xl shadow-amber-950/15 items-center gap-2.5">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white flex items-center justify-center text-sm shadow-md shadow-amber-500/35">
-            ⭐
-          </div>
-          <div class="text-xs">
-            <span class="block font-bold text-amber-950">London HQ</span>
-            <span class="text-amber-800 font-semibold">Global Student Support</span>
+          <div class="text-xs leading-snug">
+            <span class="block font-bold text-white text-sm">Ofqual Regulated</span>
+            <span class="text-[#E6C98F]">Gatehouse Awards Qualifications</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Credibility & Fast Facts Strip in Colorful Micro-Cards -->
-  <section class="border-b border-slate-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/60 to-amber-50/70 py-8">
-    <div class="container-site grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-      <div class="flex items-center gap-4 bg-gradient-to-br from-blue-100/80 via-blue-50/90 to-indigo-100/60 p-4.5 rounded-2xl border-2 border-blue-300 shadow-sm hover:border-blue-500 hover:shadow-md hover:-translate-y-0.5 transition-all">
-        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-600/30 text-xl">
-          🎓
+  <!-- Credibility & Fast Facts Strip: 4 Bold Color-Blocked Tiles -->
+  <section class="border-b border-[#E5DFD3] bg-[#F2EDE3] py-8">
+    <div class="container-site grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="flex items-center gap-4 bg-[#102347] text-white p-5 rounded-xl shadow-xs">
+        <div class="w-11 h-11 rounded-lg bg-white/10 text-[#E6B86A] flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-5.825-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+          </svg>
         </div>
         <div>
-          <div class="font-bold text-base text-blue-950 leading-snug">11 Qualifications</div>
-          <div class="text-xs text-blue-800 font-bold mt-0.5">Levels 2 to 5 Diplomas</div>
+          <div class="font-bold text-base leading-snug">11 Qualifications</div>
+          <div class="text-xs text-slate-300 mt-0.5">Levels 2 to 5 Diplomas</div>
         </div>
       </div>
 
-      <div class="flex items-center gap-4 bg-gradient-to-br from-amber-100/80 via-amber-50/90 to-orange-100/60 p-4.5 rounded-2xl border-2 border-amber-300 shadow-sm hover:border-amber-500 hover:shadow-md hover:-translate-y-0.5 transition-all">
-        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-amber-500/30 text-xl">
-          🏛️
+      <div class="flex items-center gap-4 bg-[#174E3B] text-white p-5 rounded-xl shadow-xs">
+        <div class="w-11 h-11 rounded-lg bg-white/10 text-[#A7DFC5] flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
         </div>
         <div>
-          <div class="font-bold text-base text-amber-950 leading-snug">Gatehouse Awards</div>
-          <div class="text-xs text-amber-800 font-bold mt-0.5">UK Ofqual-Regulated Body</div>
+          <div class="font-bold text-base leading-snug">Gatehouse Awards</div>
+          <div class="text-xs text-[#CBE9DA] mt-0.5">UK Ofqual-Regulated Body</div>
         </div>
       </div>
 
-      <div class="flex items-center gap-4 bg-gradient-to-br from-rose-100/80 via-rose-50/90 to-pink-100/60 p-4.5 rounded-2xl border-2 border-rose-300 shadow-sm hover:border-rose-500 hover:shadow-md hover:-translate-y-0.5 transition-all">
-        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-rose-500/30 text-xl">
-          📍
+      <div class="flex items-center gap-4 bg-[#742233] text-white p-5 rounded-xl shadow-xs">
+        <div class="w-11 h-11 rounded-lg bg-white/10 text-[#F3C6CF] flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
         </div>
         <div>
-          <div class="font-bold text-base text-rose-950 leading-snug">London Headquarters</div>
-          <div class="text-xs text-rose-800 font-bold mt-0.5">38 Woodgrange Rd, E7 0QH</div>
+          <div class="font-bold text-base leading-snug">London Headquarters</div>
+          <div class="text-xs text-[#F5D6DC] mt-0.5">38 Woodgrange Rd, E7 0QH</div>
         </div>
       </div>
 
-      <div class="flex items-center gap-4 bg-gradient-to-br from-emerald-100/80 via-emerald-50/90 to-teal-100/60 p-4.5 rounded-2xl border-2 border-emerald-300 shadow-sm hover:border-emerald-500 hover:shadow-md hover:-translate-y-0.5 transition-all">
-        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-emerald-500/30 text-xl">
-          💬
+      <div class="flex items-center gap-4 bg-[#144D5E] text-white p-5 rounded-xl shadow-xs">
+        <div class="w-11 h-11 rounded-lg bg-white/10 text-[#A8DFEE] flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
         </div>
         <div>
-          <div class="font-bold text-base text-emerald-950 leading-snug">WhatsApp Support</div>
-          <div class="text-xs text-emerald-800 font-bold mt-0.5">+44 7515 474714</div>
+          <div class="font-bold text-base leading-snug">WhatsApp Support</div>
+          <div class="text-xs text-[#C7E9F3] mt-0.5">+44 7515 474714</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section: Progression Pathway with Rich Colorful Journey Cards -->
-  <section class="py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50 to-white border-b border-slate-200">
+  <!-- Section: Progression Pathway -->
+  <section class="py-20 lg:py-24 bg-white border-b border-[#E5DFD3]">
     <div class="container-site">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-100 border-2 border-amber-300 px-4 py-1.5 rounded-full mb-3 shadow-xs">
-          <span>✨</span>
-          <span>Your Educational Journey</span>
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#963E1D] bg-[#FDF2EE] border border-[#EBC6B8] px-3.5 py-1 rounded-md mb-3">
+          Your Educational Journey
         </span>
-        <h2 class="text-3xl md:text-4xl text-brand-900 font-serif">
+        <h2 class="text-3xl md:text-4xl text-[#102347] font-serif">
           Progression Pathway to UK Higher Education &amp; Careers
         </h2>
         <p class="mt-4 text-slate-600 text-base sm:text-lg">
@@ -344,28 +314,27 @@ function getCourseTheme(level: string, category: string) {
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
         {pathwaySteps.map((s) => (
-          <div class={`rounded-2xl ${s.borderColor} ${s.cardBg} shadow-md flex flex-col justify-between overflow-hidden hover:shadow-2xl ${s.shadowColor} hover:-translate-y-1.5 transition-all duration-300`}>
-            <!-- Colorful Top Accent Header Bar -->
-            <div class={`h-3 w-full ${s.accentBar}`}></div>
+          <div class={`rounded-xl border ${s.borderColor} ${s.cardBg} flex flex-col justify-between overflow-hidden transition-colors`}>
+            <div class={`h-2 w-full ${s.topBar}`}></div>
 
-            <div class="p-8">
+            <div class="p-7 sm:p-8">
               <div class="flex items-center justify-between gap-2 mb-5">
-                <span class={`text-xs font-bold px-3 py-1 rounded-lg border ${s.badgeColor} shadow-xs`}>
+                <span class={`text-xs font-bold px-2.5 py-1 rounded-md ${s.badgeColor}`}>
                   {s.level}
                 </span>
-                <span class={`w-10 h-10 rounded-full ${s.stepBadge} flex items-center justify-center font-bold text-sm shadow-md`}>
+                <span class={`w-9 h-9 rounded-lg ${s.stepBadge} flex items-center justify-center font-serif font-bold text-sm`}>
                   {s.step}
                 </span>
               </div>
-              <h3 class="text-xl font-bold text-brand-900 mb-3">{s.title}</h3>
-              <p class="text-sm text-slate-700 leading-relaxed mb-6">{s.description}</p>
+              <h3 class="text-xl font-bold text-[#102347] mb-3">{s.title}</h3>
+              <p class="text-sm text-slate-700 leading-relaxed">{s.description}</p>
             </div>
 
-            <div class={`px-8 py-4 ${s.targetBg} flex items-center justify-between text-xs`}>
-              <span class="font-bold">{s.target}</span>
-              <a href="/courses" class={`font-bold ${s.exploreText} underline-offset-4 hover:underline inline-flex items-center gap-1`}>
+            <div class={`px-7 sm:px-8 py-4 ${s.footerBg} flex items-center justify-between text-xs`}>
+              <span class="font-semibold">{s.target}</span>
+              <a href="/courses" class={`font-bold ${s.exploreLink} underline-offset-4 hover:underline inline-flex items-center gap-1`}>
                 <span>Explore</span>
                 <span>→</span>
               </a>
@@ -374,25 +343,22 @@ function getCourseTheme(level: string, category: string) {
         ))}
       </div>
 
-      <div class="mt-14 text-center">
+      <div class="mt-12 text-center">
         <p class="text-sm text-slate-600 max-w-2xl mx-auto">
           Need personalized advice on which stage aligns with your current qualifications or HSC / A-Level results?
         </p>
-        <div class="mt-5 flex justify-center flex-wrap gap-3.5">
+        <div class="mt-5 flex justify-center flex-wrap gap-3">
           <a
             href="https://wa.me/447515474714?text=Hello%2C%20I%20am%20from%20Bangladesh%20and%20would%20like%20guidance%20on%20UK%20course%20progression."
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-md shadow-emerald-600/25 hover:shadow-lg transition-all"
+            class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold bg-[#174E3B] hover:bg-[#113B2C] text-white transition-colors"
           >
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.075-2.227-.557-1.745-.722-2.883-2.502-2.97-2.618-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.087-.179.182-.077.357.101.174.453.748.971 1.209.669.595 1.233.78 1.408.867.174.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.158.572 4.184 1.574 5.938l-1.574 5.754 5.922-1.553c1.706.942 3.666 1.477 5.753 1.477 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z" />
-            </svg>
-            <span>Ask an Advisor on WhatsApp</span>
+            Ask an Advisor on WhatsApp
           </a>
           <a
             href="/contact"
-            class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-semibold bg-white border border-slate-300 text-slate-800 hover:border-amber-400 hover:bg-amber-50/50 shadow-xs transition-all"
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-xs font-semibold bg-white border border-[#C9C0B0] text-[#102347] hover:border-[#102347] transition-colors"
           >
             Book an Advisory Call
           </a>
@@ -401,62 +367,57 @@ function getCourseTheme(level: string, category: string) {
     </div>
   </section>
 
-  <!-- Educational Services in Distinct Full-Color Themed Cards -->
-  <section class="py-20 lg:py-24 bg-gradient-to-b from-blue-50/50 via-indigo-50/30 to-white border-b border-slate-200">
+  <!-- Educational Services -->
+  <section class="py-20 lg:py-24 bg-[#FAF8F4] border-b border-[#E5DFD3]">
     <div class="container-site">
       <div class="max-w-2xl">
-        <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-900 bg-blue-100 border-2 border-blue-300 px-4 py-1.5 rounded-full mb-3 shadow-xs">
-          <span>🎯</span>
-          <span>Support Services</span>
+        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#144D5E] bg-[#EDF5F7] border border-[#C2DCE3] px-3.5 py-1 rounded-md mb-3">
+          Support Services
         </span>
-        <h2 class="text-3xl md:text-4xl text-brand-900 font-serif">Our Educational Services</h2>
+        <h2 class="text-3xl md:text-4xl text-[#102347] font-serif">Our Educational Services</h2>
         <p class="mt-3 text-lg text-slate-600">Dedicated guidance at every stage of your learning journey.</p>
       </div>
 
       <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((s) => (
-          <div class={`rounded-2xl ${s.cardBg} p-6 shadow-md flex flex-col justify-between ${s.cardBorderHover} hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden group`}>
-            <!-- Top color line -->
-            <div class={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${s.accentGradient}`}></div>
-
+          <div class={`rounded-xl border border-t-4 ${s.cardBorder} ${s.topRule} ${s.cardBg} p-6 flex flex-col justify-between transition-colors`}>
             <div>
-              <div class="flex items-center justify-between mb-5 pt-1">
-                <span class={`text-[11px] font-bold px-2.5 py-1 rounded-lg border uppercase tracking-wider ${s.badgeStyle}`}>
+              <div class="flex items-center justify-between mb-5">
+                <span class={`text-[11px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider ${s.badgeStyle}`}>
                   {s.badge}
                 </span>
-                <span class="text-xs font-bold text-slate-500 font-mono">#{s.number}</span>
+                <span class="text-sm font-serif font-bold text-slate-400">{s.number}</span>
               </div>
 
-              <!-- Colorful Icon Container -->
-              <div class={`w-13 h-13 rounded-2xl ${s.iconBg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
+              <div class={`w-11 h-11 rounded-lg ${s.iconBg} flex items-center justify-center mb-4`}>
                 {s.icon === 'compass' && (
-                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.85">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.5 6.5l-2 5.5-5.5 2 2-5.5 5.5-2z" />
                   </svg>
                 )}
                 {s.icon === 'tutoring' && (
-                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.85">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-5.825-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5" />
                   </svg>
                 )}
                 {s.icon === 'skills' && (
-                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.85">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 )}
                 {s.icon === 'admissions' && (
-                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.85">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 )}
               </div>
 
-              <h3 class="text-lg font-bold text-brand-900 mb-2 leading-snug">{s.title}</h3>
+              <h3 class="text-lg font-bold text-[#102347] mb-2 leading-snug">{s.title}</h3>
               <p class="text-sm text-slate-700 leading-relaxed">{s.text}</p>
             </div>
 
-            <div class={`pt-4 mt-5 border-t ${s.footerBorder}`}>
-              <a href="/contact" class={`text-xs font-bold ${s.footerLink} inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform`}>
+            <div class="pt-4 mt-5 border-t border-black/10">
+              <a href="/contact" class={`text-xs font-bold ${s.linkColor} inline-flex items-center gap-1 hover:underline underline-offset-4`}>
                 <span>Request details</span>
                 <span>→</span>
               </a>
@@ -467,55 +428,49 @@ function getCourseTheme(level: string, category: string) {
     </div>
   </section>
 
-  <!-- Featured Qualifications with Rich Colorful Individual Cards -->
-  <section class="py-20 lg:py-28 bg-white">
+  <!-- Featured Qualifications -->
+  <section class="py-20 lg:py-26 bg-white">
     <div class="container-site">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
         <div class="max-w-2xl">
-          <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-100 border-2 border-amber-300 px-4 py-1.5 rounded-full mb-3 shadow-xs">
-            <span>📜</span>
-            <span>Regulated Programmes</span>
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#6E450D] bg-[#FDF7EC] border border-[#E8D5B5] px-3.5 py-1 rounded-md mb-3">
+            Regulated Programmes
           </span>
-          <h2 class="text-3xl md:text-4xl text-brand-900 font-serif">Featured Gatehouse Awards Diplomas</h2>
+          <h2 class="text-3xl md:text-4xl text-[#102347] font-serif">Featured Gatehouse Awards Diplomas</h2>
           <p class="mt-3 text-slate-600 text-base sm:text-lg">
             Regulated qualifications in business innovation, management and international foundation studies.
           </p>
         </div>
         <a
           href="/courses"
-          class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-white border-2 border-brand-800 text-brand-900 hover:bg-brand-50 shadow-xs hover:-translate-y-0.5 transition-all shrink-0"
+          class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-white border border-[#102347] text-[#102347] hover:bg-[#FAF8F4] transition-colors shrink-0"
         >
           <span>View All 11 Qualifications</span>
           <span>→</span>
         </a>
       </div>
 
-      <!-- Colorful Qualification Cards Grid -->
-      <div class="space-y-5">
+      <div class="space-y-4">
         {featured.map((c) => {
           const theme = getCourseTheme(c.level, c.category);
           return (
-            <div class={`rounded-2xl ${theme.cardBg} ${theme.borderLeft} p-6 sm:p-7 shadow-sm ${theme.cardHover} transition-all duration-300 hover:-translate-y-0.5`}>
+            <div class={`rounded-xl border ${theme.cardBg} ${theme.border} p-6 sm:p-7 transition-colors`}>
               <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                 <div class="flex items-start gap-4 sm:gap-5">
-                  <!-- Level Badge Pill -->
-                  <div class="shrink-0 flex flex-col items-center gap-1.5 pt-0.5">
-                    <span class={`text-xs font-bold px-3 py-1.5 rounded-xl uppercase tracking-wider ${theme.badgeBg} shadow-sm`}>
-                      {c.level}
-                    </span>
-                    <span class="text-lg select-none">{theme.iconEmoji}</span>
-                  </div>
+                  <span class={`text-xs font-bold px-3 py-1.5 rounded-md uppercase tracking-wider shrink-0 mt-0.5 ${theme.badgeBg}`}>
+                    {c.level}
+                  </span>
 
                   <div class="space-y-2">
                     <div class="flex flex-wrap items-center gap-2.5">
                       <a
                         href={`/courses#${c.id}`}
-                        class={`font-serif text-lg sm:text-xl font-bold text-brand-900 ${theme.titleHover} transition-colors`}
+                        class={`font-serif text-lg sm:text-xl font-bold text-[#102347] ${theme.titleHover} transition-colors`}
                       >
                         {c.title}
                       </a>
                       {c.credits && (
-                        <span class={`text-xs font-bold ${theme.creditsBg} px-2.5 py-0.5 rounded-md font-mono shadow-xs`}>
+                        <span class={`text-xs font-semibold ${theme.creditsBg} px-2.5 py-0.5 rounded-md font-mono`}>
                           {c.credits} Credits
                         </span>
                       )}
@@ -526,14 +481,14 @@ function getCourseTheme(level: string, category: string) {
                     </p>
 
                     <div class="flex flex-wrap items-center gap-3 text-xs text-slate-600 pt-1">
-                      <span class={`inline-flex items-center gap-1.5 font-bold ${theme.tagText}`}>
-                        <span class={`w-2.5 h-2.5 rounded-full ${theme.dotColor}`}></span>
+                      <span class={`inline-flex items-center gap-1.5 font-semibold ${theme.tagText}`}>
+                        <span class={`w-2 h-2 rounded-xs ${theme.dotColor}`}></span>
                         {c.category}
                       </span>
                       {c.qualificationRef && !c.qualificationRef.includes('confirmed') && (
                         <>
                           <span class="text-slate-400">•</span>
-                          <span>QAN Ref: <strong class="font-mono text-slate-900">{c.qualificationRef}</strong></span>
+                          <span>QAN Ref: <strong class="font-mono text-[#102347]">{c.qualificationRef}</strong></span>
                         </>
                       )}
                       <span class="text-slate-400">•</span>
@@ -542,13 +497,12 @@ function getCourseTheme(level: string, category: string) {
                   </div>
                 </div>
 
-                <!-- Action Buttons with WhatsApp & Course Link -->
-                <div class="flex items-center gap-3 shrink-0 self-end lg:self-center">
+                <div class="flex items-center gap-2.5 shrink-0 self-end lg:self-center">
                   <a
                     href={`https://wa.me/447515474714?text=Hello%2C%20I%20am%20enquiring%20about%20${encodeURIComponent(c.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 px-4.5 py-2.5 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-md shadow-emerald-600/25 hover:shadow-lg transition-all"
+                    class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold bg-[#174E3B] hover:bg-[#113B2C] text-white transition-colors"
                   >
                     <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                       <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.075-2.227-.557-1.745-.722-2.883-2.502-2.97-2.618-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.087-.179.182-.077.357.101.174.453.748.971 1.209.669.595 1.233.78 1.408.867.174.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.158.572 4.184 1.574 5.938l-1.574 5.754 5.922-1.553c1.706.942 3.666 1.477 5.753 1.477 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z" />
@@ -557,7 +511,7 @@ function getCourseTheme(level: string, category: string) {
                   </a>
                   <a
                     href={`/courses#${c.id}`}
-                    class="inline-flex items-center gap-1 px-4.5 py-2.5 rounded-xl text-xs font-bold border-2 border-slate-300 text-slate-800 bg-white hover:bg-slate-50 hover:border-slate-400 shadow-xs transition-all"
+                    class="inline-flex items-center gap-1 px-4 py-2.5 rounded-lg text-xs font-semibold border border-[#C9C0B0] text-[#102347] bg-white hover:border-[#102347] transition-colors"
                   >
                     <span>View Course</span>
                     <span>→</span>
@@ -571,29 +525,24 @@ function getCourseTheme(level: string, category: string) {
     </div>
   </section>
 
-  <!-- Partner Spotlight with Vibrant British Academic Accents -->
-  <section class="py-16 sm:py-20 bg-gradient-to-b from-white via-blue-50/40 to-white border-y border-slate-200">
+  <!-- Partner Spotlight: Deep Oxford Navy + Warm Cream Accreditation Panel -->
+  <section class="py-16 sm:py-20 bg-[#FAF8F4] border-y border-[#E5DFD3]">
     <div class="container-site">
-      <div class="grid lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-indigo-100/70 via-blue-50/80 to-amber-100/50 rounded-3xl border-2 border-indigo-200 p-8 sm:p-12 shadow-xl shadow-indigo-900/10 relative overflow-hidden">
-        <!-- Ambient decorative background glows -->
-        <div class="absolute -right-20 -bottom-20 w-72 h-72 bg-gradient-to-br from-amber-400/20 via-orange-300/15 to-transparent rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
-        <div class="absolute -left-20 -top-20 w-72 h-72 bg-gradient-to-br from-blue-400/20 to-transparent rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
-
-        <div class="lg:col-span-8 space-y-4 relative">
-          <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-200/90 border-2 border-emerald-400 px-4 py-1.5 rounded-full shadow-xs">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+      <div class="grid lg:grid-cols-12 gap-8 items-center bg-[#102347] text-white rounded-2xl p-8 sm:p-12 shadow-lg">
+        <div class="lg:col-span-8 space-y-4">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#102347] bg-[#E6C98F] px-3.5 py-1 rounded-md">
             Regulated UK Partner
           </span>
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-900 font-serif">
-            Working in Partnership with <span class="bg-gradient-to-r from-blue-800 to-indigo-700 bg-clip-text text-transparent">Gatehouse Awards</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white font-serif">
+            Working in Partnership with Gatehouse Awards
           </h2>
-          <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-            Gatehouse Awards (GA) is a leading UK awarding organisation recognised by <strong class="text-slate-900">Ofqual</strong>, the qualifications regulator in England. Infinity International Skills Development Ltd collaborates with Gatehouse Awards to promote selected qualifications in business, management, innovation, entrepreneurship and international foundation studies.
+          <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+            Gatehouse Awards (GA) is a leading UK awarding organisation recognised by <strong class="text-white">Ofqual</strong>, the qualifications regulator in England. Infinity International Skills Development Ltd collaborates with Gatehouse Awards to promote selected qualifications in business, management, innovation, entrepreneurship and international foundation studies.
           </p>
           <div class="flex flex-wrap gap-3.5 pt-3">
             <a
               href="/partner"
-              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-gradient-to-r from-brand-800 to-blue-700 hover:from-brand-900 hover:to-blue-800 text-white shadow-md shadow-brand-900/25 hover:shadow-lg transition-all"
+              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-bold bg-[#B8893B] hover:bg-[#A3762D] text-white transition-colors"
             >
               About Our Partnership
             </a>
@@ -601,25 +550,25 @@ function getCourseTheme(level: string, category: string) {
               href="https://gatehouseawards.org/"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold border-2 border-slate-300 text-slate-800 bg-white hover:border-blue-400 hover:bg-blue-50/50 shadow-xs transition-all"
+              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold border border-white/30 text-white hover:bg-white/10 transition-colors"
             >
               Visit GatehouseAwards.org ↗
             </a>
           </div>
         </div>
 
-        <div class="lg:col-span-4 relative">
-          <div class="p-7 rounded-2xl bg-gradient-to-br from-brand-900 via-brand-800 to-indigo-950 text-white text-center space-y-3 shadow-2xl border-2 border-amber-400/50 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-amber-400/20 rounded-full blur-xl pointer-events-none"></div>
-            <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-2xl shadow-md shadow-amber-500/35">
-              🏛️
+        <div class="lg:col-span-4">
+          <div class="p-7 rounded-xl bg-[#FAF4E8] text-[#102347] text-center space-y-3 border border-[#DFC99B]">
+            <div class="w-12 h-12 mx-auto rounded-lg bg-[#102347] text-[#E6C98F] flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
             </div>
-            <div class="text-lg font-bold text-amber-300">Ofqual Regulated</div>
-            <p class="text-xs text-indigo-100 leading-relaxed">
+            <div class="text-lg font-serif font-bold text-[#102347]">Ofqual Regulated</div>
+            <p class="text-xs text-slate-700 leading-relaxed">
               All promoted qualifications meet strict national quality standards established by England's regulator.
             </p>
-            <div class="pt-2 border-t border-indigo-700/60 flex justify-center items-center gap-2 text-[11px] font-bold text-emerald-300">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <div class="pt-2 border-t border-[#DFC99B] text-[11px] font-bold uppercase tracking-wider text-[#174E3B]">
               UK Government Standards
             </div>
           </div>
@@ -628,32 +577,27 @@ function getCourseTheme(level: string, category: string) {
     </div>
   </section>
 
-  <!-- CTA Box with Glowing Background and Vibrant Buttons -->
+  <!-- CTA Box: Solid Heritage Forest Green -->
   <section class="py-16 sm:py-20 container-site">
-    <div class="relative overflow-hidden bg-gradient-to-br from-brand-900 via-indigo-950 to-blue-950 rounded-3xl p-8 sm:p-14 text-white shadow-2xl border-2 border-indigo-700/50 grid md:grid-cols-12 gap-8 items-center">
-      <!-- Colorful ambient background lighting -->
-      <div class="absolute -top-20 -right-20 w-80 h-80 bg-gradient-to-br from-amber-500/25 to-orange-500/25 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-      <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-br from-emerald-500/25 to-teal-500/25 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-
-      <div class="md:col-span-7 space-y-4 relative">
-        <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-amber-300 bg-amber-400/20 border-2 border-amber-400/40 px-3.5 py-1.5 rounded-full shadow-xs">
-          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+    <div class="bg-[#174E3B] rounded-2xl p-8 sm:p-14 text-white shadow-lg grid md:grid-cols-12 gap-8 items-center">
+      <div class="md:col-span-7 space-y-3">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#E6C98F]">
           Direct Consultation
         </span>
         <h2 class="text-3xl sm:text-4xl text-white font-serif leading-tight">
           Have questions about enrolment or entry requirements?
         </h2>
-        <p class="text-indigo-100 text-base leading-relaxed max-w-xl">
+        <p class="text-[#D4ECE0] text-base leading-relaxed max-w-xl">
           Speak directly with our London advisory team. We assist learners from Bangladesh and around the world with qualification selection and study planning.
         </p>
       </div>
 
-      <div class="md:col-span-5 flex flex-col sm:flex-row md:flex-col gap-3 justify-center relative">
+      <div class="md:col-span-5 flex flex-col sm:flex-row md:flex-col gap-3 justify-center">
         <a
           href="https://wa.me/447515474714?text=Hello%2C%20I%20am%20enquiring%20about%20enrolment%20and%20course%20information."
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white shadow-lg shadow-emerald-500/35 hover:shadow-xl hover:-translate-y-0.5 transition-all text-center"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg text-sm font-bold bg-[#B8893B] hover:bg-[#A3762D] text-white transition-colors text-center"
         >
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.075-2.227-.557-1.745-.722-2.883-2.502-2.97-2.618-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.087-.179.182-.077.357.101.174.453.748.971 1.209.669.595 1.233.78 1.408.867.174.087.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.158.572 4.184 1.574 5.938l-1.574 5.754 5.922-1.553c1.706.942 3.666 1.477 5.753 1.477 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z" />
@@ -662,7 +606,7 @@ function getCourseTheme(level: string, category: string) {
         </a>
         <a
           href="/contact"
-          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold bg-white hover:bg-slate-50 text-brand-900 hover:text-brand-950 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-center"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg text-sm font-bold bg-white hover:bg-[#FAF8F4] text-[#102347] transition-colors text-center"
         >
           <span>Send an Online Enquiry</span>
           <span>→</span>
