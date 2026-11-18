@@ -35,7 +35,7 @@ const formattedDate = new Date(post.publishedAt || Date.now()).toLocaleDateStrin
   description={post.metaDescription || post.excerpt}
   noindex={true}
 >
-  <article class="max-w-4xl mx-auto px-4 py-16 bg-white">
+  <article class="max-w-4xl mx-auto px-5 sm:px-8 py-12 sm:py-16 bg-white">
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-xs text-slate-500 mb-8">
       <a href="/" class="hover:text-slate-900">Home</a>
@@ -47,7 +47,7 @@ const formattedDate = new Date(post.publishedAt || Date.now()).toLocaleDateStrin
 
     <!-- Post Header -->
     <header class="mb-10 border-b border-slate-200 pb-8">
-      <div class="flex items-center gap-3 text-xs font-semibold mb-4 text-slate-500">
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-semibold mb-4 text-slate-500">
         <span class="px-2.5 py-1 rounded bg-blue-50 text-blue-950 font-bold uppercase tracking-wider text-[11px]">
           {post.category}
         </span>

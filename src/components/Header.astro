@@ -82,7 +82,7 @@ function isActive(href: string): boolean {
         </svg>
         <span>WhatsApp</span>
       </a>
-      <a href="/contact" class="btn-primary !py-2 !px-4 text-xs font-semibold">Enquire Now</a>
+      <a href="/contact" class="btn-primary !py-2 !px-3.5 sm:!px-4 text-xs font-semibold whitespace-nowrap">Enquire Now</a>
       <button
         id="mobile-menu-toggle"
         type="button"
@@ -97,7 +97,7 @@ function isActive(href: string): boolean {
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white">
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white max-h-[calc(100vh-76px)] overflow-y-auto">
     <nav class="container-site py-4 flex flex-col">
       {navLinks.map((link) => (
         <a

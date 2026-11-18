@@ -4,8 +4,8 @@ import Logo from './Logo.astro';
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-brand-900 text-slate-300 mt-24">
-  <div class="container-site py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
+<footer class="bg-brand-900 text-slate-300 mt-16 md:mt-24">
+  <div class="container-site py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
     <div class="md:col-span-5">
       <Logo isDarkTheme={true} />
       <p class="mt-6 text-sm leading-relaxed text-slate-400 max-w-sm">
@@ -34,7 +34,7 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="border-t border-white/10">
-    <div class="container-site py-6 text-xs text-slate-400 space-y-2">
+    <div class="container-site pt-6 pb-20 sm:py-6 text-xs text-slate-400 space-y-2">
       <p>
         © {year} Infinity International Skills Development Ltd. Registered in England and Wales, Company No. 13770605.
         Registered office: 38 Woodgrange Road, London, England, E7 0QH.
